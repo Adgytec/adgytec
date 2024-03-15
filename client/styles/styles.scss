@@ -1,1 +1,9 @@
-@use "./abstracts/reset";
+@use "./abstracts";
+
+body {
+	font-family: "Satoshi";
+}
+
+.clash-display {
+	font-family: "Clash Display";
+}

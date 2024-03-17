@@ -1,0 +1,22 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"description": "Offical website for Adgytec",
+	"main": "index.js",
+	"scripts": {
+		"start": "node server.js",
+		"dev": "nodemon server.js",
+		"build": "npm i && npm run clean",
+		"clean": "npm prune --omit=dev"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"dotenv": "^16.4.5",
+		"express": "^4.18.3"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.0"
+	}
+}

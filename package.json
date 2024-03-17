@@ -1,22 +1,18 @@
 {
 	"name": "adgytec",
 	"version": "1.0.0",
-	"description": "Offical website for Adgytec",
+	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "node server.js",
-		"dev": "nodemon server.js",
-		"client": "cd client && npm run start",
-		"build": "cd client && npm run build && cd .."
+		"build": "npm run client && node predeploy.js && npm run server",
+		"client": "cd client && npm run build && cd ..",
+		"server": "cd server && npm run build"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
-	"dependencies": {
-		"dotenv": "^16.4.5",
-		"express": "^4.18.3"
-	},
 	"devDependencies": {
-		"nodemon": "^3.1.0"
+		"fs-extra": "^11.2.0",
+		"path": "^0.12.7"
 	}
 }

@@ -6,14 +6,13 @@
 	"scripts": {
 		"start": "parcel *.html",
 		"build": "npm i && parcel build *.html && npm run clean",
-		"clean": "del ./** !(dist)"
+		"clean": "rm -rf !(dist)"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
 		"@parcel/transformer-sass": "^2.12.0",
-		"del-cli": "^5.1.0",
 		"parcel": "^2.12.0",
 		"sass": "^1.72.0",
 		"sharp": "^0.31.3"

@@ -7,7 +7,9 @@
 		"build": "npm run client && node predeploy.js && npm run server",
 		"client": "cd client && npm run build && cd ..",
 		"server": "cd server && npm run build",
-		"start": "cd server && node server.js"
+		"start": "cd server && node server.js",
+		"devClient": "cd client && npm run start",
+		"devServer": "cd server && npm run dev"
 	},
 	"keywords": [],
 	"author": "",

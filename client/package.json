@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "parcel *.html",
 		"build": "npm i && parcel build *.html && npm run clean",
-		"clean": "rm -rf !(dist)"
+		"clean": "npm prune --omit=dev"
 	},
 	"keywords": [],
 	"author": "",

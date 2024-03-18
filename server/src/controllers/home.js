@@ -4,10 +4,6 @@ const dotenv = require("dotenv");
 // configuring for env variables
 dotenv.config();
 
-// const homeHtml = path.join(__dirname, "/../../client/dist/index.html");
-// const portfolioHTMl = path.join(__dirname, "/../../client/dist/portfolio.html");
-// const notfoundHTML = path.join(__dirname, "/../../client/dist/404.html");
-
 let homeHTML;
 let portfolioHTML;
 let notfoundHTML;

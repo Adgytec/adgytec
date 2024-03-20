@@ -1,5 +1,5 @@
 const canvas = document.querySelector("#canvas1");
-const count = 50;
+const count = 20;
 
 const colors = ["blue", "cyan", "lightblue", "yellow"];
 let len = 4;

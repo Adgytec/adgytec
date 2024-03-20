@@ -12,7 +12,7 @@ let height = canvas.height;
 
 const ctx = canvas.getContext("2d");
 
-const distance = 50;
+const distance = 75;
 const speedY = 0.4;
 const speedX = 0.6;
 const minRadius = 2;
@@ -25,7 +25,8 @@ window.addEventListener("resize", () => {
 	width = canvas.width;
 	height = canvas.height;
 
-	init();
+	ctx.strokeStyle = "hsl(194, 69%, 55%)";
+	// init();
 });
 
 class Circles {

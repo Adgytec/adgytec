@@ -25,32 +25,41 @@ main {
 		translate: 0 -50%;
 		color: rgba(255, 255, 255, 0.178);
 
-		background-image: linear-gradient(
-			90deg,
-			var(--accent-primary),
-			var(--accent-secondary)
-		);
+		background-image: linear-gradient(90deg, var(--text), var(--text));
 
 		background-clip: text;
 		background-repeat: no-repeat;
 
 		background-size: 0;
-		scale: 0.4;
 
-		transform-origin: left;
+		animation: adgytec-load 300ms linear forwards;
+		overflow: hidden;
 
-		animation: adgytec 500ms 100ms linear forwards;
+		span {
+			--scale: 1.1;
+			--translate: 100px;
+
+			display: inline-block;
+			scale: var(--scale);
+
+			transition: scale 100ms linear, translate 100ms linear;
+
+			&.left {
+				translate: calc(-1 * var(--translate));
+			}
+
+			&.right {
+				translate: var(--translate);
+			}
+		}
 	}
 }
 
-@keyframes adgytec {
+@keyframes adgytec-load {
 	0% {
 		background-size: 0;
-		scale: 0.4;
 	}
-
 	100% {
 		background-size: 100%;
-		scale: 1;
 	}
 }

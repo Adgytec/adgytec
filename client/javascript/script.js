@@ -1,4 +1,4 @@
-const canvas = document.querySelector("#canvas1");
+// const canvas = document.querySelector("#canvas1");
 const count = 30;
 
 const colors = ["blue", "cyan", "lightblue", "yellow"];
@@ -10,7 +10,7 @@ canvas.width = window.innerWidth;
 let width = canvas.width;
 let height = canvas.height;
 
-const ctx = canvas.getContext("2d");
+// const ctx = canvas.getContext("2d");
 
 const distance = 75;
 const speedY = 0.4;

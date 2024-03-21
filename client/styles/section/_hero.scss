@@ -3,7 +3,7 @@
 main {
 	--times: 2;
 	--scale: 1;
-	--translate: 0;
+	--translatez: 0;
 	--translatex: 0;
 
 	height: calc(var(--times) * 100vh);
@@ -42,14 +42,18 @@ main {
 			transition: transform 200ms linear;
 
 			&.left {
-				--lt: calc(-1.3 * var(--translatex));
+				--lt: calc(-1.6 * var(--translatex));
 
-				transform: translate3d(var(--lt), 0px, var(--translate))
+				transform: translate3d(var(--lt), 0px, var(--translatez))
 					scale(var(--scale));
 			}
 
 			&.right {
-				transform: translate3d(var(--translatex), 0px, var(--translate))
+				transform: translate3d(
+						var(--translatex),
+						0px,
+						var(--translatez)
+					)
 					scale(var(--scale));
 			}
 		}

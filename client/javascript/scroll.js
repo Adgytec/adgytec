@@ -4,7 +4,7 @@
 
 	const logo = document.querySelector(".logo");
 	const main = document.getElementsByTagName("main")[0];
-	const heroTimes = 2.5;
+	const heroTimes = 3;
 
 	main.style.setProperty("--times", heroTimes);
 
@@ -18,17 +18,19 @@
 
 		// hero section height * heroTimes;
 		const heroHeight = height * heroTimes;
-		const scaleAmount = 2;
+		const scaleAmount = 2.5;
 
 		if (y <= heroHeight) {
 			let scale = 1 + (y / heroHeight) * scaleAmount;
 			scale = Math.round(scale * 10) / 10;
 
-			logo.style.setProperty("--scale", scale);
+			main.style.setProperty("--scale", scale);
 
-			let translate = (y / heroHeight) * (width - 200);
+			let translate = (y / heroHeight) * 10;
+			let translatex = (y / heroHeight) * (width / 1.3);
 
-			logo.style.setProperty("--translate", translate + "px");
+			main.style.setProperty("--translate", translate + "px");
+			main.style.setProperty("--translatex", translatex + "px");
 		}
 	});
 }

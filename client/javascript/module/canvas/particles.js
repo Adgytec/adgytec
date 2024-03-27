@@ -180,6 +180,13 @@ export class Particles {
 			75
 		);
 
+		if (width < 640) {
+			this.minRadius = 1;
+			this.maxRadius = 1.5;
+
+			this.distance = 45;
+		}
+
 		this.ctx.strokeStyle = "hsl(194, 69%, 55%)";
 	}
 }

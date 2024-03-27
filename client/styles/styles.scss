@@ -72,6 +72,7 @@ body {
 	transition: background-color 300ms ease;
 
 	display: inline-block;
+	font-size: 1.5rem;
 
 	&:is(a) {
 		text-decoration-color: transparent;
@@ -154,4 +155,48 @@ body {
 .container {
 	width: min(90%, 75em);
 	margin-inline: auto;
+}
+
+.h1 {
+	font-size: clamp(5.625rem, 10vw, 8rem);
+	line-height: clamp(7rem, 10vw, 9.375rem);
+	letter-spacing: -0.125rem;
+}
+
+.h2 {
+	font-size: clamp(5.125rem, 7vw, 6rem);
+	line-height: clamp(6.25rem, 8vw, 7.375rem);
+	letter-spacing: -0.125rem;
+}
+
+.h3 {
+	font-size: 4rem;
+	line-height: 4.875rem;
+	letter-spacing: -0.125rem;
+}
+
+.h4 {
+	font-size: 3rem;
+	line-height: 3.75rem;
+	letter-spacing: -0.125rem;
+}
+
+.h5 {
+	font-size: clamp(2rem, 3vw, 2.5rem);
+	line-height: clamp(2.5rem, 3.5vw, 3.125rem);
+	letter-spacing: -0.125rem;
+}
+
+.h6 {
+	font-size: clamp(1.6rem, 2.5vw, 2rem);
+	line-height: clamp(1.875rem, 3vw, 2.5rem);
+	letter-spacing: -0.125rem;
+}
+
+.text {
+	font-size: clamp(1rem, 1.5vw, 1.25rem);
+}
+
+.subtext {
+	font-size: clamp(0.75rem, 1.25vw, 0.9rem);
 }

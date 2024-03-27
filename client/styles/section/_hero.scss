@@ -17,25 +17,35 @@ main {
 		margin-inline: auto;
 	}
 
-	> div {
+	> .heading-container {
 		position: absolute;
 		inset: 0;
 
 		overflow: clip;
 	}
 
+	p {
+		position: sticky;
+		top: 90vb;
+
+		text-align: center;
+
+		backdrop-filter: blur(4px);
+		padding-block: 0.5em;
+
+		translate: 0 -50%;
+	}
+
 	h1 {
 		font-weight: 500;
 		position: sticky;
 		top: 50vb;
-		font-size: 18vw;
+		font-size: 20vw;
 		text-align: center;
 
 		translate: 0 -50%;
 
 		animation: adgytec-scale 400ms linear forwards;
-
-		perspective: 200px;
 
 		span {
 			display: inline-block;

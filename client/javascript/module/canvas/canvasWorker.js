@@ -1,145 +1,15 @@
-let canvas;
-let ctx;
+import { Particles } from "./particles";
 
-let width;
-let height;
+let particle;
 
 const updateDimension = (newWidth, newHeight) => {
-	console.log("resize");
-	width = newWidth;
-	height = newHeight;
-
-	canvas.height = height;
-	canvas.width = width;
-
-	ctx.strokeStyle = "hsl(194, 69%, 55%)";
+	particle.update(newWidth, newHeight);
 };
 
-const handleCanvas = () => {
-	if (!canvas) {
-		console.log("no canvas");
-		return;
-	}
+const handleCanvas = (canvas, width, height) => {
+	let context = canvas.getContext("2d");
 
-	ctx = canvas.getContext("2d");
-
-	const count = Math.floor(width / 12.8 + height / 6.3);
-
-	const colors = ["blue", "cyan", "lightblue", "yellow"];
-	let len = 4;
-
-	canvas.width = width;
-	canvas.height = height;
-
-	const distance = Math.min(Math.floor(width / 15 + height / 32.48), 75);
-	const speedY = 0.4;
-	const speedX = 0.5;
-	const minRadius = 1.5;
-	const maxRadius = 2;
-
-	class Circles {
-		constructor() {
-			this.x = Math.floor(Math.random() * width);
-			this.y = Math.floor(Math.random() * height);
-
-			this.dx = Math.random() * speedX - speedX;
-			this.dy = Math.random() * speedY - speedY;
-
-			this.color = "hsl(26, 100%, 97%)";
-
-			this.radius = Math.floor(Math.random() * maxRadius + minRadius);
-
-			this.init();
-		}
-		init() {
-			ctx.save();
-
-			ctx.fillStyle = this.color;
-			ctx.beginPath();
-			ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-			ctx.fill();
-
-			ctx.restore();
-		}
-		updateCords() {
-			let tempx = this.x + this.dx;
-			let tempy = this.y + this.dy;
-
-			if (tempx - this.radius <= 0 || tempx + this.radius >= width) {
-				this.dx *= -1;
-				tempx += this.dx;
-			}
-
-			if (tempy - this.radius <= 0 || tempy + this.radius >= height) {
-				this.dy *= -1;
-				tempy += this.dy;
-			}
-
-			this.x = tempx;
-			this.y = tempy;
-		}
-		drawCircle() {
-			ctx.save();
-
-			ctx.fillStyle = this.color;
-			ctx.beginPath();
-			ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-			ctx.fill();
-
-			ctx.restore();
-		}
-
-		drawLine(ix, iy, jx, jy, alpha) {
-			ctx.save();
-
-			ctx.globalAlpha = alpha;
-			ctx.beginPath();
-			ctx.moveTo(ix, iy);
-			ctx.lineTo(jx, jy);
-			ctx.stroke();
-
-			ctx.restore();
-		}
-	}
-
-	let particles = [];
-	function init() {
-		ctx.strokeStyle = "hsl(194, 69%, 55%)";
-		particles = [];
-		for (let i = 0; i < count; i++) {
-			particles.push(new Circles());
-		}
-	}
-
-	init();
-
-	function animate() {
-		ctx.clearRect(0, 0, width, height);
-
-		for (let i = 0; i < count; i++) {
-			particles[i].updateCords();
-			particles[i].drawCircle();
-
-			let ix = particles[i].x;
-			let iy = particles[i].y;
-
-			for (let j = i; j < count; j++) {
-				let jx = particles[j].x;
-				let jy = particles[j].y;
-
-				let dis = Math.hypot(jx - ix, jy - iy);
-
-				if (dis <= distance) {
-					let alpha = 1 - dis / distance;
-					particles[j].drawLine(ix, iy, jx, jy, alpha);
-				}
-			}
-		}
-
-		requestAnimationFrame(animate);
-	}
-
-	animate();
+	particle = new Particles(canvas, context, width, height);
 };
 
 self.onmessage = (e) => {
@@ -147,12 +17,9 @@ self.onmessage = (e) => {
 
 	switch (type) {
 		case "canvas":
-			const { canvas: c, width: w, height: h } = e.data;
-			canvas = c;
-			width = w;
-			height = h;
+			const { canvas, width, height } = e.data;
 
-			handleCanvas();
+			handleCanvas(canvas, width, height);
 			break;
 		case "resize":
 			const { width: newWidth, height: newHeight } = e.data;

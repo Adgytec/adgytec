@@ -5,7 +5,7 @@ main {
 	--scale: 1;
 	--opacity: 1;
 
-	height: calc(var(--times) * 100vh);
+	height: calc(var(--times) * 100dvb);
 	position: relative;
 
 	#canvas1 {
@@ -25,20 +25,17 @@ main {
 
 	p {
 		position: sticky;
-		top: 90vb;
+		top: 95dvb;
 
 		text-align: center;
 
-		backdrop-filter: blur(4px);
-		padding-block: 0.5em;
-
-		translate: 0 -50%;
+		translate: 0 -100%;
 	}
 
 	h1 {
 		font-weight: 500;
 		position: sticky;
-		top: 50vb;
+		top: 50dvb;
 		font-size: 19vw;
 		text-align: center;
 

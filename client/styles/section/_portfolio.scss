@@ -1,0 +1,72 @@
+@use "../abstracts/media-queries" as ab;
+
+.portfolio-container {
+	--background-size: 0%;
+
+	background-color: var(--bg-800);
+	color: var(--text);
+	padding-block: 2em;
+
+	.portfolio {
+		h2 {
+			background-image: linear-gradient(90deg, var(--text), var(--text));
+			color: rgba(0, 0, 0, 0.123);
+			background-clip: text;
+			background-repeat: no-repeat;
+
+			background-size: var(--background-size);
+
+			transition: background-size 200ms linear;
+			max-width: max-content;
+		}
+
+		&-items {
+			margin-block-start: 2em;
+			opacity: var(--opacity);
+
+			transition: opacity 200ms linear;
+			display: grid;
+			gap: 2em;
+
+			> * {
+				background-color: var(--bg-600);
+				padding-block-end: 1em;
+				box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+				border-radius: 0.75em;
+				overflow: clip;
+
+				scale: var(--scale, 0.5);
+				opacity: var(--opacity, 0.5);
+
+				transition: scale 200ms linear, opacity 200ms linear;
+
+				div {
+					padding-inline: 1em;
+					padding-block-start: 0.5em;
+				}
+			}
+
+			@include ab.screen-48 {
+				grid-template-areas:
+					"odd ."
+					"odd even"
+					"odd even"
+					". even";
+			}
+
+			> :nth-child(odd) {
+				@include ab.screen-48 {
+					grid-area: odd;
+					transform-origin: left bottom;
+				}
+			}
+
+			> :nth-child(even) {
+				@include ab.screen-48 {
+					grid-area: even;
+					transform-origin: right bottom;
+				}
+			}
+		}
+	}
+}

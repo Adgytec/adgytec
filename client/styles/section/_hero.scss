@@ -3,8 +3,7 @@
 main {
 	--times: 2;
 	--scale: 1;
-	--translatez: 0;
-	--translatex: 0;
+	--opacity: 1;
 
 	height: calc(var(--times) * 100vh);
 	position: relative;
@@ -40,45 +39,15 @@ main {
 		font-weight: 500;
 		position: sticky;
 		top: 50vb;
-		font-size: 20vw;
+		font-size: 19vw;
 		text-align: center;
 
 		translate: 0 -50%;
 
-		animation: adgytec-scale 400ms linear forwards;
+		scale: var(--scale);
+		opacity: var(--opacity);
 
-		span {
-			display: inline-block;
-			transition: transform 200ms linear;
-
-			&.left {
-				--lt: calc(-1.6 * var(--translatex));
-
-				transform: translate3d(var(--lt), 0px, var(--translatez))
-					scale(var(--scale));
-			}
-
-			&.right {
-				transform: translate3d(
-						var(--translatex),
-						0px,
-						var(--translatez)
-					)
-					scale(var(--scale));
-			}
-		}
-	}
-}
-
-@keyframes adgytec-scale {
-	0% {
-		scale: 0.4;
-		opacity: 0.1;
-	}
-
-	100% {
-		scale: 1;
-		opacity: 1;
+		transition: opacity 100ms linear, scale 100ms linear;
 	}
 }
 

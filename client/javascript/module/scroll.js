@@ -1,6 +1,6 @@
 // constants
 const heroTimes = 3;
-const scaleAmount = 2.5;
+
 let width = window.innerWidth;
 let height = window.innerHeight;
 
@@ -27,16 +27,18 @@ export const scrollAnimation = (...domElements) => {
 };
 
 const handleHeroSection = (y, height, main) => {
-	const xScale = 1.3; // increase to see fast transition
+	const scaleAmount = 2.5;
 
+	// scale
 	let scale = 1 + (y / height) * scaleAmount;
 	scale = Math.round(scale * 10) / 10;
 
 	main.style.setProperty("--scale", scale);
 
-	let translatez = (y / height) * 10;
-	let translatex = (y / height) * (width / xScale);
+	// opacity
+	let opacity = 1 - (y / height) * 1;
+	opacity = Math.round(opacity * 10) / 10;
 
-	main.style.setProperty("--translatez", translatez + "px");
-	main.style.setProperty("--translatex", translatex + "px");
+	main.style.setProperty("--opacity", opacity);
+	console.log(opacity);
 };

@@ -170,7 +170,8 @@ body {
 
 .h2 {
 	font-size: clamp(3.75rem, 7vw, 6rem);
-	line-height: clamp(6.25rem, 8vw, 7.375rem);
+	// line-height: clamp(6.25rem, 8vw, 7.375rem);
+	line-height: 5rem;
 	letter-spacing: -0.125rem;
 }
 

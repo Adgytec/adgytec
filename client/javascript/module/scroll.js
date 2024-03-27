@@ -75,7 +75,7 @@ const handlePortfolioSection = (y, portfolio) => {
 		let top = Math.round(item.getBoundingClientRect().top - height * 1.1);
 		// let bottom = item.getBoundingClientRect().bottom - height;
 
-		if (top <= 0) {
+		if (top <= -100) {
 			let scale = Math.max((y / height / 0.7) * 1, 0.5);
 			scale = Math.min(1, scale);
 			let opacity = scale;

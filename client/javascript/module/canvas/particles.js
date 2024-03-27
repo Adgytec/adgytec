@@ -96,6 +96,13 @@ export class Particles {
 		this.minRadius = 1.5;
 		this.maxRadius = 2;
 
+		if (width < 640) {
+			this.minRadius = 1;
+			this.maxRadius = 1.5;
+
+			this.distance = 45;
+		}
+
 		this.color = "hsl(26, 100%, 97%)";
 
 		this.count = Math.floor(this.width / 12.8 + this.height / 6.3);

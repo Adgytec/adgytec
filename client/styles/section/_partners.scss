@@ -5,16 +5,39 @@
 	color: var(--text);
 
 	padding-block: 3em;
+	display: grid;
+	gap: 2em;
 
 	h3 {
 		text-align: center;
 	}
 
-	> div {
-		display: grid;
-		grid-template-columns: repeat(5, auto);
-		place-items: center;
+	.container-wide {
+		overflow: hidden;
 
-		gap: 3em;
+		.partner {
+			display: flex;
+			gap: 5em;
+
+			align-items: center;
+			animation: loop 5s linear infinite;
+
+			> * {
+				min-width: 12rem;
+			}
+
+			&:hover {
+				animation-play-state: paused;
+			}
+		}
+	}
+}
+
+@keyframes loop {
+	from {
+		translate: 0;
+	}
+	to {
+		translate: -1366px;
 	}
 }

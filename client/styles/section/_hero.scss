@@ -50,9 +50,3 @@ main {
 		transition: opacity 100ms linear, scale 100ms linear;
 	}
 }
-
-main + div {
-	height: 200vb;
-	background-color: var(--bg-800);
-	color: var(--text);
-}

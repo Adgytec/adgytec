@@ -7,6 +7,10 @@ let height = window.innerHeight;
 export const scrollAnimation = (...domElements) => {
 	const main = domElements[0];
 	const portfolio = domElements[1];
+	const aboutus = domElements[2];
+
+	const aboutusText = aboutus.childNodes[1].childNodes[3].childNodes[1];
+	const aboutusText2 = aboutus.childNodes[1].childNodes[3].childNodes[3];
 
 	main.style.setProperty("--times", heroTimes);
 
@@ -28,14 +32,25 @@ export const scrollAnimation = (...domElements) => {
 			portfolio.getBoundingClientRect().bottom + window.scrollY
 		);
 
+		const aboutusTextStart =
+			aboutusText.getBoundingClientRect().top + window.scrollY - height;
+		const aboutusHeight =
+			aboutus.getBoundingClientRect().bottom + window.scrollY;
+
 		if (y <= heroHeight) {
 			handleHeroSection(y, heroHeight, main);
 		}
 
-		if (y >= portfolioStart && y <= portfolioHeight) {
+		if (y >= portfolioStart) {
 			let offsetY = y - portfolioStart;
 
 			handlePortfolioSection(offsetY, portfolio);
+		}
+
+		if (y >= aboutusTextStart) {
+			let offsetY = Math.round(y - aboutusTextStart);
+
+			handleAboutusSection(offsetY, aboutusText, aboutusText2);
 		}
 	});
 };
@@ -58,30 +73,30 @@ const handleHeroSection = (y, height, main) => {
 
 const handlePortfolioSection = (y, portfolio) => {
 	const heading = portfolio.childNodes[1].childNodes[1];
-	// const headingHeight = heading.offsetHeight;
 	const headingFill = height / 2;
 
-	const items = portfolio.childNodes[1].childNodes[3].childNodes;
-
 	if (y <= headingFill) {
-		let backgroundSize = (y / headingFill) * 110;
+		let backgroundSize = (y / headingFill) * 125;
 
 		portfolio.style.setProperty("--background-size", backgroundSize + "%");
 	}
+};
 
-	for (let i = 1; i < items.length; i += 2) {
-		// if (i != 1) continue;
-		let item = items[i];
-		let top = Math.round(item.getBoundingClientRect().top - height * 1.1);
-		// let bottom = item.getBoundingClientRect().bottom - height;
+const handleAboutusSection = (y, aboutusText, aboutusText2) => {
+	const aboutusTextEnd = height / 4;
+	const aboutusText2End = height / 3;
 
-		if (top <= -100) {
-			let scale = Math.max((y / height / 0.7) * 1, 0.5);
-			scale = Math.min(1, scale);
-			let opacity = scale;
+	let x = Math.round((y / aboutusTextEnd) * 100);
+	x = Math.min(100, x);
 
-			item.style.setProperty("--scale", scale);
-			item.style.setProperty("--opacity", opacity);
-		}
+	aboutusText.style.setProperty("--x", x + "%");
+
+	if (y >= aboutusTextEnd) {
+		y = y - aboutusTextEnd;
+
+		let x = Math.round((y / aboutusText2End) * 100);
+		x = Math.min(100, x);
+
+		aboutusText2.style.setProperty("--x", x + "%");
 	}
 };

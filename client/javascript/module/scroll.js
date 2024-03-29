@@ -24,12 +24,15 @@ export const scrollAnimation = (...domElements) => {
 				window.scrollY -
 				height / 1.2
 		);
+		const portfolioHeight = Math.round(
+			portfolio.getBoundingClientRect().bottom + window.scrollY
+		);
 
 		if (y <= heroHeight) {
 			handleHeroSection(y, heroHeight, main);
 		}
 
-		if (y >= portfolioStart) {
+		if (y >= portfolioStart && y <= portfolioHeight) {
 			let offsetY = y - portfolioStart;
 
 			handlePortfolioSection(offsetY, portfolio);
@@ -61,12 +64,9 @@ const handlePortfolioSection = (y, portfolio) => {
 	const items = portfolio.childNodes[1].childNodes[3].childNodes;
 
 	if (y <= headingFill) {
-		let backgroundSize = (y / headingFill) * 100;
+		let backgroundSize = (y / headingFill) * 110;
 
-		portfolio.style.setProperty(
-			"--background-size",
-			backgroundSize + 1 + "%"
-		);
+		portfolio.style.setProperty("--background-size", backgroundSize + "%");
 	}
 
 	for (let i = 1; i < items.length; i += 2) {

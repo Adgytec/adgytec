@@ -4,8 +4,20 @@
 	padding-block: 5em;
 
 	h2 {
-		color: var(--accent-secondary);
+		--angle: 180deg;
+
 		position: sticky;
+		height: max-content;
+		top: 10vb;
+
+		writing-mode: vertical-lr;
+
+		@include ab.screen-48 {
+			--angle: 90deg;
+
+			writing-mode: horizontal-tb;
+			line-height: clamp(6.25rem, 8vw, 7.375rem);
+		}
 	}
 
 	h3 {
@@ -16,17 +28,10 @@
 		display: grid;
 		gap: 2em;
 
+		grid-template-columns: min-content 1fr;
+
 		@include ab.screen-48 {
-			grid-template-columns: min-content 1fr;
-
 			gap: clamp(2em, 4.5vi, 4em);
-
-			h2 {
-				line-height: clamp(6.25rem, 8vw, 7.375rem);
-
-				height: max-content;
-				top: 10vb;
-			}
 		}
 	}
 

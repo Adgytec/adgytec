@@ -16,7 +16,9 @@
 
 			background-size: var(--background-size);
 
-			transition: background-size 200ms linear;
+			transition: background-size 0ms linear;
+
+			max-width: max-content;
 		}
 
 		&-items {
@@ -37,7 +39,7 @@
 				scale: var(--scale, 0.5);
 				opacity: var(--opacity, 0.5);
 
-				transition: scale 200ms linear, opacity 200ms linear;
+				transition: scale 50ms linear, opacity 50ms linear;
 
 				div {
 					padding-inline: clamp(1em, 2.5vw, 2em);

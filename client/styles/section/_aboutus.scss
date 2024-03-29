@@ -14,7 +14,7 @@
 	}
 
 	h2 {
-		color: var(--accent-secondary);
+		--angle: 270deg;
 	}
 
 	p > span {
@@ -32,14 +32,14 @@
 			animation-timeline: view();
 
 			animation-range-start: cover 0%;
-			animation-range-end: cover 30vb;
+			animation-range-end: cover 30dvb;
 		}
 	}
 
 	div > p:last-child span {
 		@supports (animation-timeline: view()) {
-			animation-range-start: cover 20.5vb;
-			animation-range-end: cover 60vb;
+			animation-range-start: cover 20.5dvb;
+			animation-range-end: cover 60dvb;
 		}
 	}
 }
@@ -48,8 +48,4 @@
 	to {
 		background-size: 100% 100%;
 	}
-}
-
-[a] {
-	height: 1000vb;
 }

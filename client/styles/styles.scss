@@ -206,3 +206,16 @@ body {
 .subtext {
 	font-size: clamp(0.75rem, 1.25vw, 0.9rem);
 }
+
+.gradient-heading {
+	--angle: 90deg;
+
+	color: transparent;
+	background-clip: text;
+	background-image: linear-gradient(
+		var(--angle),
+		var(--accent-secondary-active),
+		var(--accent-secondary),
+		var(--accent-secondary-hover)
+	);
+}

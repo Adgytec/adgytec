@@ -33,6 +33,8 @@ main {
 	}
 
 	h1 {
+		--time: 100ms;
+
 		font-weight: 500;
 		position: sticky;
 		top: 50dvb;
@@ -44,6 +46,6 @@ main {
 		scale: var(--scale);
 		opacity: var(--opacity);
 
-		transition: opacity 100ms linear, scale 100ms linear;
+		transition: opacity var(--time) linear, scale var(--time) linear;
 	}
 }

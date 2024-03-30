@@ -2,6 +2,8 @@
 
 footer {
 	padding-block: 3em 2em;
+	background-color: var(--bg-800);
+	color: var(--text);
 
 	.h6 {
 		font-size: clamp(1.25rem, 1.75vw, 1.5rem);

@@ -56,8 +56,8 @@ body {
 	background-color: var(--bg-800);
 	color: var(--text);
 
-	display: grid;
-	gap: 1em;
+	// display: grid;
+	// gap: 1em;
 	scroll-behavior: smooth;
 }
 
@@ -173,8 +173,8 @@ body {
 }
 
 .h1 {
-	font-size: clamp(5.625rem, 10vw, 8rem);
-	line-height: clamp(7rem, 10vw, 9.375rem);
+	font-size: clamp(5rem, 8vw, 7rem);
+	line-height: clamp(6rem, 8vw, 7rem);
 	letter-spacing: -0.125rem;
 }
 

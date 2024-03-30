@@ -1,0 +1,32 @@
+@use "./abstracts" as ab;
+@use "./section/footer";
+
+nav {
+	padding-block: 1em;
+
+	a {
+		img {
+			width: 15rem;
+		}
+	}
+}
+
+.h6 {
+	letter-spacing: 0;
+}
+
+#privacy {
+	background-color: var(--bg-800);
+	color: var(--text);
+	padding-block: 2em 4em;
+
+	> div {
+		display: grid;
+		gap: 2em;
+
+		> div {
+			display: grid;
+			gap: 1em;
+		}
+	}
+}

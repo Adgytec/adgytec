@@ -1,5 +1,5 @@
 // constants
-const heroTimes = 3;
+const heroTimes = 2;
 
 let width = window.innerWidth;
 let height = window.innerHeight;
@@ -72,7 +72,6 @@ const handleHeroSection = (y, height, main) => {
 };
 
 const handlePortfolioSection = (y, portfolio) => {
-	const heading = portfolio.childNodes[1].childNodes[1];
 	const headingFill = height / 2;
 
 	if (y <= headingFill) {

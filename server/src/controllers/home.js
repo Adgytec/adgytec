@@ -7,15 +7,29 @@ dotenv.config();
 let homeHTML;
 let portfolioHTML;
 let notfoundHTML;
+let privacyPolicyHTML;
+let successHTML;
+let rejectHTML;
 
 if (process.env.ENV === "production") {
 	homeHTML = path.join(__dirname, "../../dist/index.html");
 	portfolioHTML = path.join(__dirname, "../../dist/portfolio.html");
 	notfoundHTML = path.join(__dirname, "../../dist/404.html");
+	privacyPolicyHTML = path.join(__dirname, "../../dist/privacy.html");
+
+	successHTML = path.join(__dirname, "../../dist/success.html");
+	rejectHTML = path.join(__dirname, "../../dist/reject.html");
 } else {
 	homeHTML = path.join(__dirname, "../../../client/dist/index.html");
 	portfolioHTML = path.join(__dirname, "../../../client/dist/portfolio.html");
 	notfoundHTML = path.join(__dirname, "../../../client/dist/404.html");
+	privacyPolicyHTML = path.join(
+		__dirname,
+		"../../../client/dist/privacy.html"
+	);
+
+	successHTML = path.join(__dirname, "../../../client/dist/success.html");
+	rejectHTML = path.join(__dirname, "../../../client/dist/reject.html");
 }
 
 const home = (req, res) => {
@@ -33,8 +47,28 @@ const contactus = (req, res) => {
 	});
 };
 
+const privacy = (req, res) => {
+	return res.sendFile(privacyPolicyHTML);
+};
+
+const success = (req, res) => {
+	return res.sendFile(successHTML);
+};
+
+const reject = (req, res) => {
+	return res.sendFile(rejectHTML);
+};
+
 const notfound = (req, res) => {
 	return res.sendFile(notfoundHTML);
 };
 
-module.exports = { home, portfolio, contactus, notfound };
+module.exports = {
+	home,
+	portfolio,
+	contactus,
+	notfound,
+	privacy,
+	success,
+	reject,
+};

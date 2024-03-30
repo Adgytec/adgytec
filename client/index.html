@@ -12,13 +12,17 @@
 		<script type="module" src="./javascript/home/main.js"></script>
 	</head>
 	<body>
-		<main>
+		<main data-theme="dark" id="home">
 			<canvas id="canvas1"></canvas>
 			<div class="heading-container">
+				<nav data-theme="dark" class="container-wide">
+					<img src="./assets/logo.svg" alt="adgytec" />
+				</nav>
+
 				<h1 class="clash-display">ADGYTEC</h1>
 
 				<p class="container text">
-					<a href="#" data-variant="primary" data-type="link"
+					<a href="#contact" data-variant="primary" data-type="link"
 						>Agile with Adgytec.
 					</a>
 					We are a full-service digital transformation agency offering
@@ -27,7 +31,7 @@
 			</div>
 		</main>
 
-		<div data-theme="light" class="portfolio-container">
+		<div data-theme="light" class="portfolio-container" id="portfolio">
 			<div class="portfolio container-wide">
 				<h2 class="h2">OUR WORK</h2>
 
@@ -184,7 +188,7 @@
 			</div>
 		</div>
 
-		<div data-theme="dark" class="services-container">
+		<div data-theme="dark" class="services-container" id="services">
 			<div class="container-wide">
 				<h2 class="h2 gradient-heading">SERVICES OFFERED</h2>
 
@@ -296,6 +300,81 @@
 							<li>Competitive Analysis</li>
 							<li>Online Reputation Monitoring</li>
 						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="contact" data-theme="light" class="contact-container">
+			<div class="">
+				<div class="contact-heading container-wide">
+					<h2 class="h2">CONTACT</h2>
+
+					<p class="text">We're excited to hear from you.</p>
+				</div>
+
+				<div class="container">
+					<div class="form" data-theme="dark">
+						<div class="form-item">
+							<h4 class="h4">Start Now</h4>
+							<img src="./assets/contact.webp" alt="" />
+						</div>
+
+						<div class="form-item">
+							<h4 class="h5">
+								Your Digital Transformation Partner
+							</h4>
+							<form action="/contact-us" action="POST">
+								<input
+									required
+									placeholder="*Name"
+									type="text"
+									name="name"
+								/>
+								<input
+									required
+									placeholder="*Email"
+									type="email"
+									name="email"
+								/>
+								<input
+									required
+									placeholder="*Mobile"
+									type="tel"
+									inputmode="numeric"
+									pattern="[0-9]{10}"
+									name="mobile"
+								/>
+								<input
+									required
+									placeholder="*What are you looking for?"
+									type="text"
+									name="for"
+								/>
+								<p class="subtext">
+									Disclaimer: By clicking submit, you agree to
+									receive communications from Adgytec in
+									accordance with our
+									<a
+										href="/privacy-policy"
+										target="_blank"
+										data-type="link"
+										data-variant="secondary"
+										>Privacy Policy</a
+									>.
+								</p>
+
+								<div>
+									<button
+										data-type="button"
+										data-variant="secondary"
+										type="submit"
+									>
+										Submit
+									</button>
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -1,6 +1,7 @@
 @use "./abstracts";
 
 // color theme
+[data-theme="dark"],
 :root {
 	// colors
 	--dark: hsl(0, 0%, 6%);
@@ -51,6 +52,7 @@ body {
 
 	display: grid;
 	gap: 1em;
+	scroll-behavior: smooth;
 }
 
 .clash-display {
@@ -153,7 +155,7 @@ body {
 }
 
 .container {
-	width: min(90%, 75em);
+	width: min(90%, 70em);
 	margin-inline: auto;
 }
 
@@ -188,9 +190,9 @@ body {
 }
 
 .h5 {
-	font-size: clamp(2rem, 3vw, 2.5rem);
+	font-size: clamp(1.75rem, 3vw, 2.25rem);
 	line-height: clamp(2.5rem, 3.5vw, 3.125rem);
-	letter-spacing: -0.125rem;
+	letter-spacing: -0rem;
 }
 
 .h6 {

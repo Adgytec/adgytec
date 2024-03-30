@@ -29,6 +29,12 @@
 	--accent-secondary-active: hsl(194, 69%, 55%);
 
 	color-scheme: dark;
+
+	--linkedin: #0077b5;
+	--twitter: #1d9bf0;
+	--instagram: #da426c;
+	--facebook: #4867aa;
+	--threads: #333333;
 }
 
 [data-theme="light"] {
@@ -129,12 +135,10 @@ body {
 		&:hover,
 		&:focus-visible {
 			--color: var(--accent-primary-hover);
-			text-decoration-color: currentColor;
 		}
 
 		&:active {
 			--color: var(--accent-primary-active);
-			text-decoration-color: currentColor;
 		}
 	}
 
@@ -144,13 +148,17 @@ body {
 		&:hover,
 		&:focus-visible {
 			--color: var(--accent-secondary-hover);
-			text-decoration-color: currentColor;
 		}
 
 		&:active {
 			--color: var(--accent-secondary-active);
-			text-decoration-color: currentColor;
 		}
+	}
+
+	&:hover,
+	&:focus-visible,
+	&:active {
+		text-decoration-color: currentColor;
 	}
 }
 

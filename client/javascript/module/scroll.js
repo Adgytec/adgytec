@@ -65,7 +65,7 @@ const handleHeroSection = (y, height, main) => {
 	main.style.setProperty("--scale", scale);
 
 	// opacity
-	let opacity = 1 - (y / height) * 1;
+	let opacity = 1 - (y / (height / 1.5)) * 1;
 	opacity = Math.round(opacity * 10) / 10;
 
 	main.style.setProperty("--opacity", opacity);

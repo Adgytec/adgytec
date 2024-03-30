@@ -89,6 +89,7 @@ const handleAboutusSection = (y, aboutusText, aboutusText2) => {
 	x = Math.min(100, x);
 
 	aboutusText.style.setProperty("--x", x + "%");
+	aboutusText2.style.setProperty("--x", 0 + "%");
 
 	if (y >= aboutusTextEnd) {
 		y = y - aboutusTextEnd;

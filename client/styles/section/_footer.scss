@@ -122,17 +122,17 @@ footer {
 					transition: fill 200ms ease;
 				}
 
-				a:has(use[href="#facebook"]):hover {
+				a:has(svg[id="facebook"]):hover {
 					--bg: var(--facebook);
 				}
 
-				a:has(use[href="#twitter"]):hover {
+				a:has(svg[id="twitter"]):hover {
 					--bg: var(--twitter);
 				}
-				a:has(use[href="#linkedin"]):hover {
+				a:has(svg[id="linkedin"]):hover {
 					--bg: var(--linkedin);
 				}
-				a:has(use[href="#instagram"]):hover {
+				a:has(svg[id="instagram"]):hover {
 					--bg: var(--instagram);
 				}
 			}

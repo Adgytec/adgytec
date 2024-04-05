@@ -80,7 +80,9 @@
 						}
 					}
 
-					input {
+					input,
+					textarea,
+					select {
 						width: min(100%, 22.5em);
 						background-color: var(--bg-400);
 						border-color: transparent;
@@ -89,6 +91,10 @@
 						padding-block: 0.3em;
 
 						font-weight: 500;
+					}
+
+					textarea {
+						resize: none;
 					}
 
 					div {

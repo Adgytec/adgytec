@@ -7,6 +7,7 @@
 	scroll-padding-block-start: 0em;
 
 	padding-block: 4em;
+	overflow: hidden;
 
 	> div {
 		display: grid;
@@ -131,7 +132,7 @@
 		&::before {
 			content: "";
 			height: 33%;
-			width: 99dvw;
+			width: 100dvw;
 			background-color: var(--accent-secondary);
 			position: absolute;
 			left: 50%;

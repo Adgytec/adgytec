@@ -1,5 +1,6 @@
 const path = require("path");
 const dotenv = require("dotenv");
+const nodemailer = require("nodemailer");
 
 // configuring for env variables
 dotenv.config();
@@ -40,11 +41,60 @@ const portfolio = (req, res) => {
 	return res.sendFile(portfolioHTML);
 };
 
-const contactus = (req, res) => {
-	return res.status(200).json({
-		success: true,
-		message: "This is form submission url",
-	});
+// sending mail on submission
+const transporter = nodemailer.createTransport({
+	service: "gmail",
+	auth: {
+		user: "adgytec.main@gmail.com",
+		pass: "gyan tdnz iwqq tfps",
+	},
+});
+
+const sendMail = async (text) => {
+	const mailOptions = {
+		from: "adgytec.main@gmail.com",
+		// to: "info@traveleyes.in",
+		to: "rohanverma031@gmail.com",
+		subject: "Contact Us Submission",
+		text,
+	};
+
+	return await transporter.sendMail(mailOptions);
+};
+
+const contactus = async (req, res) => {
+	const { name, email, number, service, tellusmore } = req.body;
+
+	if (!name || !email || !number || !service) {
+		return res.status(400).json({
+			status: "error",
+			message: "Invalid or incomplete input details",
+		});
+	}
+
+	let text = `Form Submission Data. 
+    Name: ${name}
+    Email: ${email}
+    Mobile: ${number}
+    Service: ${service}
+    ${tellusmore.length > 0 ? `Tell Us More: ${tellusmore}` : ""}
+`;
+
+	try {
+		await sendMail(text);
+
+		return res.status(201).json({
+			status: "successfull",
+			message: "Successfully got your detials",
+		});
+	} catch (err) {
+		console.error(err);
+
+		return res.status(500).json({
+			status: "error",
+			message: "Internal Server Error",
+		});
+	}
 };
 
 const privacy = (req, res) => {

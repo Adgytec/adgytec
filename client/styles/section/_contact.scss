@@ -97,6 +97,27 @@
 						resize: none;
 					}
 
+					.other-service {
+						// outline: 2px solid red;
+						display: none;
+						height: 0;
+						width: 0;
+						overflow: hidden;
+					}
+
+					.form-response {
+						// outline: 2px solid red;
+						font-size: 0.9rem;
+
+						p.error {
+							color: red;
+						}
+
+						p.success {
+							color: green;
+						}
+					}
+
 					div {
 						text-align: center;
 

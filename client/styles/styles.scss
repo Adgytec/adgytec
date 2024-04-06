@@ -82,6 +82,11 @@ body {
 	display: inline-block;
 	font-size: 1.5rem;
 
+	&:disabled {
+		cursor: not-allowed;
+		filter: grayscale(1);
+	}
+
 	&:is(a) {
 		text-decoration-color: transparent;
 	}

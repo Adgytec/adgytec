@@ -106,12 +106,14 @@ const handleContactUs = async (
 			element.disabled = false;
 		});
 		p.classList.add("error");
+		window.location.href = "/reject";
 	} else if (status === "successfull") {
 		contactUsElements.forEach((element) => {
 			element.disabled = false;
 		});
 		form.reset();
 		p.classList.add("success");
+		window.location.href = "/success";
 	}
 	p.innerHTML = message;
 };

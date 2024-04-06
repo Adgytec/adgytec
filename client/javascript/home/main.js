@@ -14,7 +14,7 @@ window.addEventListener("load", () => {
 
 	// handeling form data
 	const form = document.querySelector(".contact-us-form");
-	console.log(form);
+	// console.log(form);
 
 	form.addEventListener("submit", async (event) => {
 		event.preventDefault();

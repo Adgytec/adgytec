@@ -7,11 +7,11 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT ?? 8080;
 
-if (process.env.ENV === "production") {
-	app.use(express.static("dist"));
-} else {
-	app.use(express.static("../client/dist"));
-}
+// if (process.env.ENV === "production") {
+app.use(express.static("dist"));
+// } else {
+// app.use(express.static("../client/dist"));
+// }
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

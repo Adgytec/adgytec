@@ -12,26 +12,26 @@ let privacyPolicyHTML;
 let successHTML;
 let rejectHTML;
 
-if (process.env.ENV === "production") {
-	homeHTML = path.join(__dirname, "../../dist/index.html");
-	portfolioHTML = path.join(__dirname, "../../dist/portfolio.html");
-	notfoundHTML = path.join(__dirname, "../../dist/404.html");
-	privacyPolicyHTML = path.join(__dirname, "../../dist/privacy.html");
+// if (process.env.ENV === "production") {
+homeHTML = path.join(__dirname, "../../dist/index.html");
+portfolioHTML = path.join(__dirname, "../../dist/portfolio.html");
+notfoundHTML = path.join(__dirname, "../../dist/404.html");
+privacyPolicyHTML = path.join(__dirname, "../../dist/privacy.html");
 
-	successHTML = path.join(__dirname, "../../dist/success.html");
-	rejectHTML = path.join(__dirname, "../../dist/reject.html");
-} else {
-	homeHTML = path.join(__dirname, "../../../client/dist/index.html");
-	portfolioHTML = path.join(__dirname, "../../../client/dist/portfolio.html");
-	notfoundHTML = path.join(__dirname, "../../../client/dist/404.html");
-	privacyPolicyHTML = path.join(
-		__dirname,
-		"../../../client/dist/privacy.html"
-	);
+successHTML = path.join(__dirname, "../../dist/success.html");
+rejectHTML = path.join(__dirname, "../../dist/reject.html");
+// } else {
+// 	homeHTML = path.join(__dirname, "../../../client/dist/index.html");
+// 	portfolioHTML = path.join(__dirname, "../../../client/dist/portfolio.html");
+// 	notfoundHTML = path.join(__dirname, "../../../client/dist/404.html");
+// 	privacyPolicyHTML = path.join(
+// 		__dirname,
+// 		"../../../client/dist/privacy.html"
+// 	);
 
-	successHTML = path.join(__dirname, "../../../client/dist/success.html");
-	rejectHTML = path.join(__dirname, "../../../client/dist/reject.html");
-}
+// 	successHTML = path.join(__dirname, "../../../client/dist/success.html");
+// 	rejectHTML = path.join(__dirname, "../../../client/dist/reject.html");
+// }
 
 const home = (req, res) => {
 	return res.sendFile(homeHTML);

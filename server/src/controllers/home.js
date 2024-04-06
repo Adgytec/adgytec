@@ -53,8 +53,8 @@ const transporter = nodemailer.createTransport({
 const sendMail = async (text) => {
 	const mailOptions = {
 		from: "adgytec.main@gmail.com",
-		// to: "info@traveleyes.in",
-		to: "rohanverma031@gmail.com",
+		to: "info@adgytec.in",
+		// to: "rohanverma031@gmail.com",
 		subject: "Contact Us Submission",
 		text,
 	};

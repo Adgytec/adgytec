@@ -1,0 +1,48 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Welcome Email</title>
+
+		<style>
+
+			.main { outline: 1px solid #a5a5a5; width: min(50em, 90%);
+			border-radius: 10px; margin-left: auto; margin-right: auto; padding:
+			20px; margin-top: 5px; margin-bottom: 5px;} .details { } h2 {
+			font-size: 24px;text-wrap: balance; } p { font-size: 16px; } img {
+			width: 100%; height: auto; }
+		</style>
+	</head>
+	<body>
+
+		<div class="main">
+			<img src="cid:logo" />
+
+			<div class="details">
+				<h2>Adgytec Contact Form Submission</h2>
+
+				<p>
+					<strong>Name: </strong>
+					{{name}}
+				</p>
+				<p>
+					<strong>Email: </strong>
+					{{email}}
+				</p>
+				<p>
+					<strong>Mobile Number: </strong>
+					{{number}}
+				</p>
+				<p>
+					<strong>Service: </strong>
+					{{service}}
+				</p>
+				<p>
+					<strong>Tell us more: </strong>
+					{{more}}
+				</p>
+			</div>
+		</div>
+
+	</body>
+</html>

@@ -1,6 +1,7 @@
 const path = require("path");
 const dotenv = require("dotenv");
 const nodemailer = require("nodemailer");
+const hbs = require("nodemailer-express-handlebars");
 
 // configuring for env variables
 dotenv.config();
@@ -12,26 +13,26 @@ let privacyPolicyHTML;
 let successHTML;
 let rejectHTML;
 
-// if (process.env.ENV === "production") {
-homeHTML = path.join(__dirname, "../../dist/index.html");
-portfolioHTML = path.join(__dirname, "../../dist/portfolio.html");
-notfoundHTML = path.join(__dirname, "../../dist/404.html");
-privacyPolicyHTML = path.join(__dirname, "../../dist/privacy.html");
+if (process.env.ENV === "production") {
+	homeHTML = path.join(__dirname, "../../dist/index.html");
+	portfolioHTML = path.join(__dirname, "../../dist/portfolio.html");
+	notfoundHTML = path.join(__dirname, "../../dist/404.html");
+	privacyPolicyHTML = path.join(__dirname, "../../dist/privacy.html");
 
-successHTML = path.join(__dirname, "../../dist/success.html");
-rejectHTML = path.join(__dirname, "../../dist/reject.html");
-// } else {
-// 	homeHTML = path.join(__dirname, "../../../client/dist/index.html");
-// 	portfolioHTML = path.join(__dirname, "../../../client/dist/portfolio.html");
-// 	notfoundHTML = path.join(__dirname, "../../../client/dist/404.html");
-// 	privacyPolicyHTML = path.join(
-// 		__dirname,
-// 		"../../../client/dist/privacy.html"
-// 	);
+	successHTML = path.join(__dirname, "../../dist/success.html");
+	rejectHTML = path.join(__dirname, "../../dist/reject.html");
+} else {
+	homeHTML = path.join(__dirname, "../../../client/dist/index.html");
+	portfolioHTML = path.join(__dirname, "../../../client/dist/portfolio.html");
+	notfoundHTML = path.join(__dirname, "../../../client/dist/404.html");
+	privacyPolicyHTML = path.join(
+		__dirname,
+		"../../../client/dist/privacy.html"
+	);
 
-// 	successHTML = path.join(__dirname, "../../../client/dist/success.html");
-// 	rejectHTML = path.join(__dirname, "../../../client/dist/reject.html");
-// }
+	successHTML = path.join(__dirname, "../../../client/dist/success.html");
+	rejectHTML = path.join(__dirname, "../../../client/dist/reject.html");
+}
 
 const home = (req, res) => {
 	return res.sendFile(homeHTML);
@@ -39,6 +40,12 @@ const home = (req, res) => {
 
 const portfolio = (req, res) => {
 	return res.sendFile(portfolioHTML);
+};
+
+const validEmail = (email) => {
+	const regx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+	return regx.test(email);
 };
 
 // sending mail on submission
@@ -50,13 +57,46 @@ const transporter = nodemailer.createTransport({
 	},
 });
 
-const sendMail = async (text) => {
+const handlebarOptions = {
+	viewEngine: {
+		partialsDir: path.resolve("./views/"),
+		defaultLayout: false,
+	},
+	viewPath: path.resolve("./views/"),
+};
+
+transporter.use("compile", hbs(handlebarOptions));
+
+const sendMail = async (
+	name,
+	email,
+	number,
+	service,
+	tellusmore,
+	to = "info@adgytec.in",
+	template = "contact"
+) => {
+	tellusmore = tellusmore.length > 0 ? tellusmore : "Not-filled";
+
 	const mailOptions = {
-		from: "adgytec.main@gmail.com",
-		to: "info@adgytec.in",
-		// to: "rohanverma031@gmail.com",
-		subject: "Contact Us Submission",
-		text,
+		from: "Adgytec",
+		template,
+		to,
+		subject: "Adgytec Form Submission",
+		context: {
+			name: name,
+			email: email,
+			number: number,
+			service: service,
+			more: tellusmore,
+		},
+		attachments: [
+			{
+				filename: "logo.png",
+				path: __dirname + "/../../views/logo.png",
+				cid: "logo",
+			},
+		],
 	};
 
 	return await transporter.sendMail(mailOptions);
@@ -72,16 +112,24 @@ const contactus = async (req, res) => {
 		});
 	}
 
-	let text = `Form Submission Data. 
-    Name: ${name}
-    Email: ${email}
-    Mobile: ${number}
-    Service: ${service}
-    ${tellusmore.length > 0 ? `Tell Us More: ${tellusmore}` : ""}
-`;
+	if (!validEmail(email)) {
+		return res.status(400).json({
+			status: "error",
+			message: "Invalid email",
+		});
+	}
 
 	try {
-		await sendMail(text);
+		await sendMail(name, email, number, service, tellusmore);
+		await sendMail(
+			name,
+			email,
+			number,
+			service,
+			tellusmore,
+			email,
+			"contact_response"
+		);
 
 		return res.status(201).json({
 			status: "successfull",

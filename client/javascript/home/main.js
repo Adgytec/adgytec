@@ -9,6 +9,12 @@ window.addEventListener("load", () => {
 	const portfolio = document.querySelector(".portfolio-container");
 	const aboutus = document.querySelector(".aboutus-container");
 
+	const videos = document.getElementsByTagName("video");
+
+	for (let i = 0; i < videos.length; i++) {
+		videos[i].playbackRate = 0.25;
+	}
+
 	initCanvas();
 	scrollAnimation(main, portfolio, aboutus);
 

@@ -7,7 +7,14 @@
 	color: var(--text);
 	padding-block: 4em;
 
+	@include ab.screen-48 {
+		height: 300vb;
+	}
+
 	.portfolio {
+		position: sticky;
+		top: 1em;
+
 		h2 {
 			background-image: linear-gradient(90deg, var(--text), var(--text));
 			color: rgba(0, 0, 0, 0.123);
@@ -22,49 +29,90 @@
 		}
 
 		&-items {
-			margin-block-start: 2em;
-			opacity: var(--opacity);
-
-			transition: opacity 200ms linear;
+			margin-block-start: 4em;
 			display: grid;
-			gap: 2em;
+			gap: 3em;
+			overflow: hidden;
 
-			> * {
-				background-color: var(--bg-600);
-				padding-block-end: 1em;
-				box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-				border-radius: 0.75em;
-				overflow: clip;
+			@include ab.screen-48 {
+				grid-template-columns: repeat(2, 100%);
+			}
 
-				div {
-					padding-inline: clamp(1em, 2.5vw, 2em);
-					padding-block-start: clamp(0.5em, 1.5vw, 1.25rem);
+			h3 {
+				font-weight: 500;
+				grid-area: title;
+			}
 
-					p {
-						margin-block: 0.75em;
+			p {
+				grid-area: about;
+
+				@include ab.screen-64 {
+					position: relative;
+
+					&::before {
+						position: absolute;
+						content: "";
+						top: 0;
+						bottom: 0;
+						background-color: var(--dark);
+						width: 0.15em;
+						left: -2%;
 					}
 				}
 			}
 
-			@include ab.screen-48 {
-				grid-template-areas:
-					"odd ."
-					"odd even"
-					"odd even"
-					". even";
+			video {
+				width: 100%;
 			}
 
-			> :nth-child(odd) {
+			> :nth-child(2) {
 				@include ab.screen-48 {
-					grid-area: odd;
-					transform-origin: left bottom;
+					grid-template-areas:
+						"title about about about about about"
+						"video video video video video video";
 				}
 			}
 
-			> :nth-child(even) {
+			&__child {
+				display: grid;
+				gap: 1em;
+
+				outline: 2px solid red;
+
+				grid-template-areas:
+					"title"
+					"video"
+					"about";
+
 				@include ab.screen-48 {
-					grid-area: even;
-					transform-origin: right bottom;
+					column-gap: 4em;
+					row-gap: 2em;
+
+					max-height: min-content;
+
+					grid-template-areas:
+						"title about about about"
+						"video video video video";
+				}
+
+				div {
+					position: relative;
+					overflow: auto;
+					border-radius: 0.75rem;
+					grid-area: video;
+
+					@include ab.screen-48 {
+						max-height: 60vb;
+						border-radius: 0;
+						overflow: hidden;
+					}
+
+					&::before {
+						position: absolute;
+						content: "";
+						inset: 0;
+						background-color: transparent;
+					}
 				}
 			}
 		}

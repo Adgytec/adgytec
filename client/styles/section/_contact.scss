@@ -38,7 +38,7 @@
 		flex-direction: column;
 		gap: 2em;
 
-		@include ab.screen-40 {
+		@include ab.screen-48 {
 			flex-direction: row;
 		}
 
@@ -52,7 +52,7 @@
 				h4 {
 					text-align: center;
 
-					@include ab.screen-40 {
+					@include ab.screen-48 {
 						text-align: left;
 					}
 				}
@@ -76,7 +76,7 @@
 						text-align: center;
 						text-wrap: balance;
 
-						@include ab.screen-40 {
+						@include ab.screen-48 {
 							text-align: left;
 						}
 					}
@@ -84,7 +84,7 @@
 					input,
 					textarea,
 					select {
-						width: min(100%, 22.5em);
+						width: 100%;
 						background-color: var(--bg-400);
 						border-color: transparent;
 
@@ -92,6 +92,10 @@
 						padding-block: 0.3em;
 
 						font-weight: 500;
+
+						@include ab.screen-48 {
+							width: min(100%, 22.5em);
+						}
 					}
 
 					textarea {
@@ -121,7 +125,7 @@
 					div {
 						text-align: center;
 
-						@include ab.screen-40 {
+						@include ab.screen-48 {
 							text-align: left;
 						}
 					}

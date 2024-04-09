@@ -90,7 +90,7 @@ footer {
 				display: flex;
 				align-items: flex-start;
 				gap: clamp(0.5em, 1.25vw, 1em);
-				justify-content: space-between;
+				// justify-content: space-between;
 
 				a {
 					--bg: var(--text);
@@ -144,15 +144,21 @@ footer {
 			.newsletter {
 				display: grid;
 				gap: 0.5em;
+				width: min(100%, 16rem);
+
+				@include ab.screen-40 {
+					width: auto;
+				}
 
 				form {
 					display: flex;
-					width: min(100%, 22rem);
+					width: min(100%, 16rem);
 
 					flex-direction: column;
 					gap: 0.5em;
 
 					@include ab.screen-40 {
+						width: min(100%, 22rem);
 						flex-direction: row;
 						gap: 0;
 					}

@@ -4,6 +4,10 @@ const heroTimes = 2;
 let width = window.innerWidth;
 let height = window.innerHeight;
 
+const ourWorkMedia = window.matchMedia(
+	"(min-width: 48em) and (orientation: landscape) and (min-height: 48em)"
+);
+
 export const scrollAnimation = (...domElements) => {
 	const main = domElements[0];
 	const portfolio = domElements[1];
@@ -23,11 +27,11 @@ export const scrollAnimation = (...domElements) => {
 		let y = scrollY;
 
 		const heroHeight = height * heroTimes;
+
 		const portfolioStart = Math.round(
-			portfolio.getBoundingClientRect().top +
-				window.scrollY -
-				height / 1.2
+			portfolio.getBoundingClientRect().top + window.scrollY
 		);
+		const portfolioHeadStart = Math.round(portfolioStart - height / 1.2);
 		const portfolioHeight = Math.round(
 			portfolio.getBoundingClientRect().bottom + window.scrollY
 		);
@@ -41,8 +45,8 @@ export const scrollAnimation = (...domElements) => {
 			handleHeroSection(y, heroHeight, main);
 		}
 
-		if (y >= portfolioStart) {
-			let offsetY = y - portfolioStart;
+		if (y >= portfolioHeadStart) {
+			let offsetY = y - portfolioHeadStart;
 
 			handlePortfolioSection(offsetY, portfolio);
 		}
@@ -51,6 +55,18 @@ export const scrollAnimation = (...domElements) => {
 			let offsetY = Math.round(y - aboutusTextStart);
 
 			handleAboutusSection(offsetY, aboutusText, aboutusText2);
+		}
+
+		if (ourWorkMedia.matches) {
+			const portfolioHeadTop = Math.round(portfolioStart + height / 1);
+
+			if (y >= portfolioHeadTop) {
+				let offsetY = Math.round(y - portfolioHeadTop);
+				let offsetHeight =
+					portfolioHeight - portfolioStart - height * 3;
+
+				handlePortfolioHorizontalScroll(offsetY, offsetHeight);
+			}
 		}
 	});
 };
@@ -78,6 +94,7 @@ const handlePortfolioSection = (y, portfolio) => {
 		let backgroundSize = (y / headingFill) * 125;
 
 		portfolio.style.setProperty("--background-size", backgroundSize + "%");
+		portfolio.style.setProperty("--tx", "0%");
 	}
 };
 
@@ -99,4 +116,39 @@ const handleAboutusSection = (y, aboutusText, aboutusText2) => {
 
 		aboutusText2.style.setProperty("--x", x + "%");
 	}
+};
+
+const handlePortfolioHorizontalScroll = (y, portfolioHeight) => {
+	let max = 105.5;
+
+	if (width > 768) {
+		max = 111;
+	}
+	if (width >= 820) {
+		max = 110.5;
+	}
+	if (width >= 857) {
+		max = 109.5;
+	}
+	if (width >= 946) {
+		max = 108.5;
+	}
+	if (width >= 1056) {
+		max = 107.5;
+	}
+	if (width >= 1196) {
+		max = 106.5;
+	}
+	if (width >= 1376) {
+		max = 105.5;
+	}
+
+	let x = (y / portfolioHeight) * max;
+	x = Math.round(x * 100) / 100;
+	x = Math.min(max, x);
+
+	// console.log(x);
+
+	portfolio.style.setProperty("--tx", x + "%");
+	portfolio.style.setProperty("--background-size", "125%");
 };

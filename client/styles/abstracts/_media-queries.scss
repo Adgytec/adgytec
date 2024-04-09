@@ -32,3 +32,10 @@
 		@content;
 	}
 }
+
+// width > 48em and orientation landscape
+@mixin screen-work {
+	@media (min-width: 48em) and (orientation: landscape) and (min-height: 48em) {
+		@content;
+	}
+}

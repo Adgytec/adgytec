@@ -2,13 +2,14 @@
 
 .portfolio-container {
 	--background-size: 0%;
+	--tx: 0;
 
 	background-color: var(--bg-800);
 	color: var(--text);
 	padding-block: 4em;
 
-	@include ab.screen-48 {
-		height: 300vb;
+	@include ab.screen-work {
+		height: 600vb;
 	}
 
 	.portfolio {
@@ -28,14 +29,21 @@
 			max-width: max-content;
 		}
 
-		&-items {
+		> div {
 			margin-block-start: 4em;
-			display: grid;
-			gap: 3em;
-			overflow: hidden;
 
-			@include ab.screen-48 {
+			@include ab.screen-work {
+				overflow: hidden;
+			}
+		}
+
+		&-items {
+			display: grid;
+			gap: 5em;
+
+			@include ab.screen-work {
 				grid-template-columns: repeat(2, 100%);
+				translate: calc(-1 * var(--tx));
 			}
 
 			h3 {
@@ -77,12 +85,24 @@
 				display: grid;
 				gap: 1em;
 
-				outline: 2px solid red;
-
 				grid-template-areas:
 					"title"
 					"video"
 					"about";
+
+				box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px,
+					rgba(0, 0, 0, 0.09) 0px 4px 2px,
+					rgba(0, 0, 0, 0.09) 0px 8px 4px,
+					rgba(0, 0, 0, 0.09) 0px 16px 8px,
+					rgba(0, 0, 0, 0.09) 0px 32px 16px;
+				border-radius: 0.75em;
+				padding: 1em 1em 0.5em;
+
+				@include ab.screen-work {
+					padding: 0;
+					box-shadow: none;
+					border-radius: 0;
+				}
 
 				@include ab.screen-48 {
 					column-gap: 4em;
@@ -102,7 +122,7 @@
 					grid-area: video;
 
 					@include ab.screen-48 {
-						max-height: 60vb;
+						max-height: 55dvb;
 						border-radius: 0;
 						overflow: hidden;
 					}

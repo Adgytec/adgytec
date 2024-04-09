@@ -5,7 +5,7 @@ let width = window.innerWidth;
 let height = window.innerHeight;
 
 const ourWorkMedia = window.matchMedia(
-	"(min-width: 48em) and (orientation: landscape) and (min-height: 48em)"
+	"(min-width: 48em) and (orientation: landscape) and (min-height: 43em)"
 );
 
 export const scrollAnimation = (...domElements) => {
@@ -58,12 +58,12 @@ export const scrollAnimation = (...domElements) => {
 		}
 
 		if (ourWorkMedia.matches) {
-			const portfolioHeadTop = Math.round(portfolioStart + height / 1);
+			const portfolioHeadTop = Math.round(portfolioStart + height / 2);
 
 			if (y >= portfolioHeadTop) {
 				let offsetY = Math.round(y - portfolioHeadTop);
 				let offsetHeight =
-					portfolioHeight - portfolioStart - height * 3;
+					portfolioHeight - portfolioStart - height * 2;
 
 				handlePortfolioHorizontalScroll(offsetY, offsetHeight);
 			}

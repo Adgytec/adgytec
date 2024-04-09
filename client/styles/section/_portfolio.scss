@@ -33,6 +33,7 @@
 			margin-block-start: 4em;
 
 			@include ab.screen-work {
+				margin-block-start: 3em;
 				overflow: hidden;
 			}
 		}

@@ -58,12 +58,12 @@ export const scrollAnimation = (...domElements) => {
 		}
 
 		if (ourWorkMedia.matches) {
-			const portfolioHeadTop = Math.round(portfolioStart + height / 2);
+			const portfolioHeadTop = Math.round(portfolioStart + height / 1.5);
 
 			if (y >= portfolioHeadTop) {
 				let offsetY = Math.round(y - portfolioHeadTop);
 				let offsetHeight =
-					portfolioHeight - portfolioStart - height * 2;
+					portfolioHeight - portfolioStart - height * 2.5;
 
 				handlePortfolioHorizontalScroll(offsetY, offsetHeight);
 			}

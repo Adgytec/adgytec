@@ -8,9 +8,9 @@
 	color: var(--text);
 	padding-block: 4em;
 
-	@include ab.screen-work {
-		height: 600vb;
-	}
+	// @include ab.screen-work {
+	// 	height: 600vb;
+	// }
 
 	.portfolio {
 		position: sticky;
@@ -32,19 +32,32 @@
 		> div {
 			margin-block-start: 4em;
 
-			@include ab.screen-work {
-				margin-block-start: 3.5em;
-				overflow: hidden;
-			}
+			// @include ab.screen-work {
+			// 	margin-block-start: 3.5em;
+			// 	overflow: hidden;
+			// }
 		}
 
 		&-items {
+			--o: 1;
+
 			display: grid;
 			gap: 5em;
 
-			@include ab.screen-work {
-				grid-template-columns: repeat(2, 100%);
-				translate: calc(-1 * var(--tx));
+			// @include ab.screen-work {
+			// 	grid-template-columns: repeat(2, 100%);
+			// 	translate: calc(-1 * var(--tx));
+			// }
+
+			@supports (animation-timeline: view()) {
+				// animation: scroll-opacity linear forwards;
+				animation-name: scroll-opacity;
+				animation-timing-function: linear;
+				animation-fill-mode: forwards;
+				animation-timeline: view();
+
+				animation-range-start: contain 0%;
+				animation-range-end: contain 100%;
 			}
 
 			h3 {
@@ -72,9 +85,12 @@
 
 			video {
 				width: 100%;
+				// height: 100%;
+				// object-fit: cover;
 			}
 
 			> :nth-child(2) {
+				opacity: 1;
 				@include ab.screen-48 {
 					grid-template-areas:
 						"title about about about about about"
@@ -99,11 +115,17 @@
 				border-radius: 0.75em;
 				padding: 1em 1em 0.5em;
 
-				@include ab.screen-work {
-					padding: 0;
-					box-shadow: none;
-					border-radius: 0;
-				}
+				position: sticky;
+				top: 3vb;
+				opacity: var(--o);
+
+				background-color: var(--bg-800);
+
+				// @include ab.screen-work {
+				// 	padding: 0;
+				// 	box-shadow: none;
+				// 	border-radius: 0;
+				// }
 
 				@include ab.screen-48 {
 					column-gap: 4em;
@@ -122,13 +144,13 @@
 					border-radius: 0.75rem;
 					grid-area: video;
 
-					@include ab.screen-48 {
-						max-height: 55dvb;
-						max-height: 55svb;
+					// @include ab.screen-48 {
+					// 	max-height: 55dvb;
+					// 	max-height: 55svb;
 
-						border-radius: 0;
-						overflow: hidden;
-					}
+					// 	border-radius: 0;
+					// 	overflow: hidden;
+					// }
 
 					&::before {
 						position: absolute;
@@ -139,5 +161,42 @@
 				}
 			}
 		}
+	}
+}
+
+@keyframes scroll-opacity {
+	0% {
+		--o: 1;
+	}
+	10% {
+		--o: 0.9;
+	}
+	20% {
+		--o: 0.8;
+	}
+	30% {
+		--o: 0.7;
+	}
+	40% {
+		--o: 0.6;
+	}
+	50% {
+		--o: 0.5;
+	}
+	60% {
+		--o: 0.4;
+	}
+	70% {
+		--o: 0.3;
+	}
+	80% {
+		--o: 0.2;
+	}
+	90% {
+		--o: 0.1;
+	}
+
+	100% {
+		--o: 0;
 	}
 }

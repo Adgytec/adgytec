@@ -9,6 +9,14 @@
 	padding-block: 4em;
 	overflow: hidden;
 
+	img {
+		img {
+			object-fit: cover;
+			width: 100%;
+			height: auto;
+		}
+	}
+
 	> div {
 		display: grid;
 		gap: clamp(2em, 4.5vw, 4em);

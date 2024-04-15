@@ -45,17 +45,17 @@ export const scrollAnimation = (...domElements) => {
 			handleHeroSection(y, heroHeight, main);
 		}
 
-		if (y >= portfolioHeadStart) {
-			let offsetY = y - portfolioHeadStart;
+		// if (y >= portfolioHeadStart) {
+		// 	let offsetY = y - portfolioHeadStart;
 
-			handlePortfolioSection(offsetY, portfolio);
-		}
+		// 	handlePortfolioSection(offsetY, portfolio);
+		// }
 
-		if (y >= aboutusTextStart) {
-			let offsetY = Math.round(y - aboutusTextStart);
+		// if (y >= aboutusTextStart) {
+		// 	let offsetY = Math.round(y - aboutusTextStart);
 
-			handleAboutusSection(offsetY, aboutusText, aboutusText2);
-		}
+		// 	handleAboutusSection(offsetY, aboutusText, aboutusText2);
+		// }
 
 		// if (ourWorkMedia.matches) {
 		// 	const portfolioHeadTop = Math.round(portfolioStart + height / 1.5);
@@ -87,68 +87,68 @@ const handleHeroSection = (y, height, main) => {
 	main.style.setProperty("--opacity", opacity);
 };
 
-const handlePortfolioSection = (y, portfolio) => {
-	const headingFill = height / 2;
+// const handlePortfolioSection = (y, portfolio) => {
+// 	const headingFill = height / 2;
 
-	if (y <= headingFill) {
-		let backgroundSize = (y / headingFill) * 125;
+// 	if (y <= headingFill) {
+// 		let backgroundSize = (y / headingFill) * 125;
 
-		portfolio.style.setProperty("--background-size", backgroundSize + "%");
-		portfolio.style.setProperty("--tx", "0%");
-	}
-};
+// 		portfolio.style.setProperty("--background-size", backgroundSize + "%");
+// 		portfolio.style.setProperty("--tx", "0%");
+// 	}
+// };
 
-const handleAboutusSection = (y, aboutusText, aboutusText2) => {
-	const aboutusTextEnd = height / 4;
-	const aboutusText2End = height / 3;
+// const handleAboutusSection = (y, aboutusText, aboutusText2) => {
+// 	const aboutusTextEnd = height / 4;
+// 	const aboutusText2End = height / 3;
 
-	let x = Math.round((y / aboutusTextEnd) * 100);
-	x = Math.min(100, x);
+// 	let x = Math.round((y / aboutusTextEnd) * 100);
+// 	x = Math.min(100, x);
 
-	aboutusText.style.setProperty("--x", x + "%");
-	aboutusText2.style.setProperty("--x", 0 + "%");
+// 	aboutusText.style.setProperty("--x", x + "%");
+// 	aboutusText2.style.setProperty("--x", 0 + "%");
 
-	if (y >= aboutusTextEnd) {
-		y = y - aboutusTextEnd;
+// 	if (y >= aboutusTextEnd) {
+// 		y = y - aboutusTextEnd;
 
-		let x = Math.round((y / aboutusText2End) * 100);
-		x = Math.min(100, x);
+// 		let x = Math.round((y / aboutusText2End) * 100);
+// 		x = Math.min(100, x);
 
-		aboutusText2.style.setProperty("--x", x + "%");
-	}
-};
+// 		aboutusText2.style.setProperty("--x", x + "%");
+// 	}
+// };
 
-const handlePortfolioHorizontalScroll = (y, portfolioHeight) => {
-	let max = 105.5;
+// const handlePortfolioHorizontalScroll = (y, portfolioHeight) => {
+// 	let max = 105.5;
 
-	if (width > 768) {
-		max = 111;
-	}
-	if (width >= 820) {
-		max = 110.5;
-	}
-	if (width >= 857) {
-		max = 109.5;
-	}
-	if (width >= 946) {
-		max = 108.5;
-	}
-	if (width >= 1056) {
-		max = 107.5;
-	}
-	if (width >= 1196) {
-		max = 106.5;
-	}
-	if (width >= 1376) {
-		max = 105.5;
-	}
+// 	if (width > 768) {
+// 		max = 111;
+// 	}
+// 	if (width >= 820) {
+// 		max = 110.5;
+// 	}
+// 	if (width >= 857) {
+// 		max = 109.5;
+// 	}
+// 	if (width >= 946) {
+// 		max = 108.5;
+// 	}
+// 	if (width >= 1056) {
+// 		max = 107.5;
+// 	}
+// 	if (width >= 1196) {
+// 		max = 106.5;
+// 	}
+// 	if (width >= 1376) {
+// 		max = 105.5;
+// 	}
 
-	let x = (y / portfolioHeight) * max;
-	x = Math.round(x * 100) / 100;
-	x = Math.min(max, x);
+// 	let x = (y / portfolioHeight) * max;
+// 	x = Math.round(x * 100) / 100;
+// 	x = Math.min(max, x);
 
-	// console.log(x);
+// 	// console.log(x);
 
-	portfolio.style.setProperty("--tx", x + "%");
-	portfolio.style.setProperty("--background-size", "125%");
-};
+// 	portfolio.style.setProperty("--tx", x + "%");
+// 	portfolio.style.setProperty("--background-size", "125%");
+// };

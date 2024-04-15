@@ -17,16 +17,39 @@
 		top: 1em;
 
 		h2 {
-			background-image: linear-gradient(90deg, var(--text), var(--text));
-			color: rgba(0, 0, 0, 0.123);
-			background-clip: text;
-			background-repeat: no-repeat;
+			color: var(--text);
 
-			background-size: var(--background-size);
+			// background-image: linear-gradient(90deg, var(--text), var(--text));
+			// color: rgba(0, 0, 0, 0.123);
+			// background-clip: text;
+			// background-repeat: no-repeat;
 
-			transition: background-size 0ms linear;
+			// background-size: var(--background-size);
+
+			// transition: background-size 0ms linear;
 
 			max-width: max-content;
+
+			@supports (animation-timeline: view()) {
+				color: rgba(0, 0, 0, 0.123);
+				background-image: linear-gradient(
+					90deg,
+					var(--text),
+					var(--text)
+				);
+
+				background-clip: text;
+				background-repeat: no-repeat;
+				background-size: 0% 100%;
+
+				animation-name: text-reveal;
+				animation-timing-function: linear;
+				animation-fill-mode: forwards;
+				animation-timeline: view();
+
+				animation-range-start: contain 10vb;
+				animation-range-end: contain 40vb;
+			}
 		}
 
 		> div {
@@ -195,8 +218,13 @@
 	90% {
 		--o: 0.1;
 	}
-
 	100% {
 		--o: 0;
+	}
+}
+
+@keyframes text-reveal {
+	to {
+		background-size: 100% 100%;
 	}
 }

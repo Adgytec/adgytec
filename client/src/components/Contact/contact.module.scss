@@ -121,11 +121,11 @@
 						font-size: 0.9rem;
 
 						p.error {
-							color: red;
+							color: var(--error);
 						}
 
 						p.success {
-							color: green;
+							color: var(--success);
 						}
 					}
 

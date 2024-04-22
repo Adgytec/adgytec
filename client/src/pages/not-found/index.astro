@@ -78,6 +78,12 @@ import WithoutFooter from "@layouts/WithoutFooter.astro";
 	}
 </style>
 
+<script>
+	import { initCanvas } from "@scripts/particles/canvas";
+
+	initCanvas();
+</script>
+
 <WithoutFooter pageTitle="404">
 	<main id="notfound">
 		<nav data-theme="dark" class="container-wide">

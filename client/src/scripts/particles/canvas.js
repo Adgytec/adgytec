@@ -1,35 +1,19 @@
+import { Particles } from "./particles";
+
 export const initCanvas = () => {
 	const canvas = document.getElementById("canvas1");
-	const offscreen = canvas.transferControlToOffscreen();
-
-	const canvasWorkerUrl = new URL("canvasWorker.js", import.meta.url);
-	const canvasWorker = new Worker(canvasWorkerUrl);
-
-	console.log(canvasWorker);
 
 	let width = window.innerWidth;
 	let height = window.innerHeight;
 
-	console.log(canvasWorker);
+	let context = canvas.getContext("2d");
 
-	canvasWorker.postMessage(
-		{
-			type: "canvas",
-			canvas: offscreen,
-			width: width,
-			height: height,
-		},
-		[offscreen]
-	);
+	let particle = new Particles(canvas, context, width, height);
 
 	window.addEventListener("resize", (e) => {
 		const newHeight = window.innerHeight;
 		const newWidth = window.innerWidth;
 
-		canvasWorker.postMessage({
-			type: "resize",
-			width: newWidth,
-			height: newHeight,
-		});
+		particle.update(newWidth, newHeight);
 	});
 };

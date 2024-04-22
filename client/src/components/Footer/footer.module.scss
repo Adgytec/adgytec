@@ -1,0 +1,205 @@
+@use "/src/styles/abstracts/media-queries" as ab;
+
+.footer {
+	padding-block: 3em 2em;
+	background-color: var(--bg-800);
+	color: var(--text);
+	z-index: 1;
+	position: relative;
+	background-color: transparent;
+
+	.h6 {
+		font-size: clamp(1.25rem, 1.75vw, 1.5rem);
+		letter-spacing: 0em;
+	}
+
+	p,
+	a {
+		font-size: 0.9rem;
+		font-weight: 400;
+	}
+
+	.footer_main {
+		display: grid;
+		gap: clamp(1em, 3.5vw, 3em);
+
+		grid-template-areas:
+			"address address"
+			"newsletter social"
+			"navigation navigation";
+
+		@include ab.screen-40 {
+			grid-template-areas:
+				"address navigation"
+				"social newsletter";
+		}
+
+		@include ab.screen-64 {
+			grid-template-areas: "address navigation social newsletter";
+		}
+	}
+
+	.footer_item {
+		margin: 0;
+		padding: 0;
+
+		display: grid;
+		gap: clamp(0.5em, 1.5em, 1em);
+		align-content: start;
+
+		.h6 {
+			margin: 0;
+		}
+
+		&:nth-child(1) {
+			--gap: 1em;
+
+			grid-area: address;
+
+			display: flex;
+			gap: var(--gap);
+			align-items: flex-start;
+
+			> * {
+				width: 50%;
+			}
+
+			> div {
+				display: grid;
+				gap: 1em;
+			}
+
+			a {
+				font-weight: 500;
+			}
+		}
+
+		&:nth-child(2) {
+			grid-area: navigation;
+
+			> div {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 0.5em;
+			}
+		}
+
+		&:nth-child(3) {
+			grid-area: social;
+
+			.social_links {
+				display: flex;
+				align-items: flex-start;
+				gap: clamp(0.5em, 1.25vw, 1em);
+				// justify-content: space-between;
+
+				a {
+					--bg: var(--text);
+
+					width: clamp(2rem, 3vw, 2.5rem);
+
+					background-color: var(--bg);
+
+					aspect-ratio: 1;
+					border-radius: 50%;
+
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					transition: background-color 200ms ease;
+
+					&:hover svg {
+						fill: var(--text);
+					}
+				}
+
+				svg {
+					width: 70%;
+					height: 70%;
+
+					fill: var(--bg-800);
+
+					transition: fill 200ms ease;
+				}
+
+				a[id="facebook"]:hover {
+					--bg: var(--facebook);
+				}
+
+				a[id="twitter"]:hover {
+					--bg: var(--twitter);
+				}
+				a[id="linkedin"]:hover {
+					--bg: var(--linkedin);
+				}
+				a[id="instagram"]:hover {
+					--bg: var(--instagram);
+				}
+			}
+		}
+
+		&:nth-child(4) {
+			grid-area: newsletter;
+
+			.newsletter {
+				display: grid;
+				gap: 0.5em;
+				width: min(100%, 16rem);
+
+				@include ab.screen-40 {
+					width: auto;
+				}
+
+				form {
+					display: flex;
+					// width: min(100%, 16rem);
+
+					flex-direction: column;
+					gap: 0.5em;
+
+					@include ab.screen-40 {
+						width: min(100%, 22rem);
+						flex-direction: row;
+						gap: 0;
+					}
+				}
+			}
+
+			input {
+				width: 100%;
+				background-color: var(--bg-400);
+				padding-inline: 0.4em;
+				padding-block: 0.3em;
+				border-color: transparent;
+			}
+
+			button {
+				--bg: var(--accent-secondary);
+				border-radius: 0;
+				border-color: transparent;
+
+				color: var(--bg-800);
+				font-weight: 600;
+				background-color: var(--bg);
+
+				&:hover,
+				&:focus-visible {
+					--bg: var(--accent-secondary-hover);
+				}
+
+				&:active {
+					--bg: var(--accent-secondary-active);
+				}
+			}
+		}
+	}
+
+	.footer_copyright {
+		margin-block-start: 4em;
+
+		p {
+			text-align: center;
+		}
+	}
+}

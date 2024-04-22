@@ -1,0 +1,236 @@
+@use "./abstracts";
+
+// color theme
+[data-theme="dark"],
+:root {
+	// colors
+	--dark: hsl(0, 0%, 6%);
+	--white: hsl(26, 100%, 97%);
+	--yellow: hsl(51, 100%, 50%);
+	--blue: hsl(194, 69%, 65%);
+
+	// background
+	--bg-800: var(--dark);
+	--bg-600: hsl(0, 0%, 12%);
+	--bg-400: hsl(0, 0%, 18%);
+	--bg-200: hsl(0, 0%, 24%);
+
+	// text
+	--text: var(--white);
+
+	// accent 1
+	--accent-primary: var(--yellow);
+	--accent-primary-hover: hsl(51, 100%, 65%);
+	--accent-primary-active: hsl(51, 100%, 40%);
+
+	// accent-2
+	--accent-secondary: var(--blue);
+	--accent-secondary-hover: hsl(194, 69%, 75%);
+	--accent-secondary-active: hsl(194, 69%, 55%);
+
+	color-scheme: dark;
+
+	--linkedin: #0077b5;
+	--twitter: #1d9bf0;
+	--instagram: #da426c;
+	--facebook: #4867aa;
+	--threads: #333333;
+}
+
+[data-theme="light"] {
+	// background
+	--bg-800: var(--white);
+	--bg-600: hsl(26, 100%, 92%);
+	--bg-400: hsl(26, 100%, 86%);
+	--bg-200: hsl(26, 100%, 80%);
+
+	// text
+	--text: var(--dark);
+
+	color-scheme: light;
+}
+
+body {
+	font-family: "Satoshi";
+
+	background-color: var(--bg-800);
+	color: var(--text);
+
+	// display: grid;
+	// gap: 1em;
+	scroll-behavior: smooth;
+}
+
+.clash-display {
+	font-family: "Clash Display";
+}
+
+// button
+[data-type="button"] {
+	padding: 0;
+	border-radius: 0.5rem;
+	border: 0;
+
+	padding-inline: 1em;
+	padding-block: 0.2rem;
+	font-weight: 500;
+
+	background-color: var(--bg);
+	color: var(--dark);
+	transition: background-color 300ms ease;
+
+	display: inline-block;
+	font-size: 1.5rem;
+
+	&:disabled {
+		cursor: not-allowed;
+		filter: grayscale(1);
+	}
+
+	&:is(a) {
+		text-decoration-color: transparent;
+	}
+
+	&[data-variant="primary"] {
+		--bg: var(--accent-primary);
+
+		&:hover,
+		&:focus-visible {
+			--bg: var(--accent-primary-hover);
+		}
+
+		&:active {
+			--bg: var(--accent-primary-active);
+		}
+	}
+
+	&[data-variant="secondary"] {
+		--bg: var(--accent-secondary);
+
+		&:hover,
+		&:focus-visible {
+			--bg: var(--accent-secondary-hover);
+		}
+
+		&:active {
+			--bg: var(--accent-secondary-active);
+		}
+	}
+}
+
+// link
+[data-type="link"] {
+	color: var(--color);
+	text-decoration-color: transparent;
+
+	transition: color 300ms ease, text-decoration-color 300ms ease;
+
+	&:is(button) {
+		background-color: transparent;
+		border: 0;
+		padding: 0;
+
+		text-decoration: underline transparent;
+		cursor: pointer;
+	}
+
+	&[data-variant="primary"] {
+		--color: var(--accent-primary);
+
+		&:hover,
+		&:focus-visible {
+			--color: var(--accent-primary-hover);
+		}
+
+		&:active {
+			--color: var(--accent-primary-active);
+		}
+	}
+
+	&[data-variant="secondary"] {
+		--color: var(--accent-secondary);
+
+		&:hover,
+		&:focus-visible {
+			--color: var(--accent-secondary-hover);
+		}
+
+		&:active {
+			--color: var(--accent-secondary-active);
+		}
+	}
+
+	&:hover,
+	&:focus-visible,
+	&:active {
+		text-decoration-color: currentColor;
+	}
+}
+
+.container {
+	width: min(90%, 70em);
+	margin-inline: auto;
+}
+
+.container-wide {
+	width: min(90%, 90em);
+	margin-inline: auto;
+}
+
+.h1 {
+	font-size: clamp(5rem, 8vw, 7rem);
+	line-height: clamp(6rem, 8vw, 7rem);
+	letter-spacing: -0.125rem;
+}
+
+.h2 {
+	font-size: clamp(3.75rem, 7vw, 6rem);
+	// line-height: clamp(6.25rem, 8vw, 7.375rem);
+	line-height: 5rem;
+	letter-spacing: -0.125rem;
+}
+
+.h3 {
+	font-size: 3rem;
+	line-height: 4.875rem;
+	letter-spacing: -0.125rem;
+}
+
+.h4 {
+	font-size: 2.5rem;
+	line-height: 3.75rem;
+	letter-spacing: -0.125rem;
+}
+
+.h5 {
+	font-size: clamp(1.75rem, 3vw, 2.25rem);
+	line-height: clamp(2.5rem, 3.5vw, 3.125rem);
+	letter-spacing: -0rem;
+}
+
+.h6 {
+	font-size: clamp(1.5rem, 2.5vw, 2rem);
+	line-height: clamp(1.875rem, 3vw, 2.5rem);
+	letter-spacing: -0.125rem;
+}
+
+.text {
+	font-size: clamp(1rem, 1.5vw, 1.25rem);
+}
+
+.subtext {
+	font-size: clamp(0.75rem, 1.25vw, 0.9rem);
+}
+
+.gradient-heading {
+	--angle: 90deg;
+
+	color: transparent;
+	background-clip: text;
+	background-image: linear-gradient(
+		var(--angle),
+		var(--accent-secondary-active),
+		var(--accent-secondary),
+		var(--accent-secondary-hover)
+	);
+}

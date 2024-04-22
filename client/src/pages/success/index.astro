@@ -1,0 +1,53 @@
+---
+import Footer from "@components/Footer/Footer.astro";
+import WithoutFooter from "@layouts/WithoutFooter.astro";
+---
+
+<style lang="scss">
+	.canvas {
+		#response {
+			display: grid;
+			place-items: center;
+
+			height: 70dvb;
+			height: 70svb;
+
+			text-align: center;
+		}
+
+		canvas {
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+	}
+
+	nav {
+		padding-block: 1em;
+		position: relative;
+
+		z-index: 1;
+
+		a {
+			img {
+				width: 15rem;
+			}
+		}
+	}
+</style>
+
+<WithoutFooter pageTitle="Form Success">
+	<div class="canvas">
+		<canvas id="canvas1"></canvas>
+		<nav data-theme="dark" class="container-wide">
+			<a href="/">
+				<img src="/logo.svg" alt="adgytec" />
+			</a>
+		</nav>
+		<main id="response" class="container">
+			<h2 class="h2">Successfully submitted your form response</h2>
+		</main>
+
+		<Footer />
+	</div>
+</WithoutFooter>

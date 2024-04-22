@@ -1,0 +1,14 @@
+@use "/src/styles/abstracts/media-queries" as ab;
+
+.nav {
+	padding-block: 1em;
+	position: relative;
+
+	z-index: 1;
+
+	a {
+		img {
+			width: 15rem;
+		}
+	}
+}

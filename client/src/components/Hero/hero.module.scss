@@ -1,0 +1,78 @@
+@use "/src/styles/abstracts/media-queries" as ab;
+
+.main {
+	--times: 2;
+	--scale: 1;
+	--opacity: 1;
+
+	height: calc(var(--times) * 100dvb);
+	position: relative;
+
+	#canvas1 {
+		position: sticky;
+		top: 0;
+		left: 0;
+		width: 99%;
+		margin-inline: auto;
+	}
+
+	> .heading_container {
+		position: absolute;
+		inset: 0;
+
+		overflow: clip;
+	}
+
+	nav {
+		padding-block: 2em;
+		position: sticky;
+		top: 0;
+
+		img {
+			width: 15em;
+			opacity: var(--opacity);
+
+			transition: opacity 200ms ease;
+		}
+	}
+
+	p {
+		position: sticky;
+
+		top: 95%;
+		top: 95svb;
+
+		text-align: center;
+
+		translate: 0 -100%;
+	}
+
+	h1 {
+		--time: 100ms;
+		--offset: 0.03em;
+
+		--c1: #aabae8;
+		--c2: #e2e8f7;
+
+		font-weight: 500;
+		position: sticky;
+		top: 50%;
+		font-size: 19vw;
+		text-align: center;
+
+		filter: drop-shadow(
+			var(--offset) var(--offset) var(--accent-primary-active)
+		);
+
+		translate: 0 -50%;
+
+		scale: var(--scale);
+		opacity: var(--opacity);
+
+		transition: opacity var(--time) linear, scale var(--time) linear;
+
+		color: transparent;
+		background-image: linear-gradient(360deg, var(--c1), var(--c2));
+		background-clip: text;
+	}
+}

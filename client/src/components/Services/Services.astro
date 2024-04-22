@@ -1,0 +1,36 @@
+---
+import styles from "./services.module.scss";
+
+import { services } from "@data/services";
+---
+
+<div data-theme="dark" class={styles.services_container} id="services">
+	<div class="container-wide">
+		<h2 class="h2 gradient-heading">SERVICES OFFERED</h2>
+
+		<div class={styles.servcies}>
+			{
+				services.map((service) => {
+					return (
+						<div class={styles.services_item}>
+							<h3 class="h6">{service.heading}</h3>
+							<img
+								loading="lazy"
+								width="933"
+								height="493"
+								src={service.img}
+								alt={service.heading}
+							/>
+							<p class="text">{service.text}</p>
+							<ul>
+								{service.list.map((item) => (
+									<li>{item}</li>
+								))}
+							</ul>
+						</div>
+					);
+				})
+			}
+		</div>
+	</div>
+</div>

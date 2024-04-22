@@ -1,0 +1,27 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import "../styles/main.scss";
+
+const { pageTitle } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta name="generator" content={Astro.generator} />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="We drive 360° Digital Transformation integrating IT services
+    with end-to-end marketing, design, and development"
+		/>
+
+		<title>Adgytec - {pageTitle}</title>
+
+		<link rel="icon" type="image/x-icon" href="/logo.ico" />
+		<ViewTransitions />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

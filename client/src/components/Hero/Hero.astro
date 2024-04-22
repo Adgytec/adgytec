@@ -1,0 +1,29 @@
+---
+import styles from "./hero.module.scss";
+---
+
+<script>
+	import "@scripts/Hero/scroll";
+	import { initCanvas } from "@scripts/particles/canvas";
+
+	initCanvas();
+</script>
+
+<main data-theme="dark" id="home" class={styles.main}>
+	<canvas id="canvas1"></canvas>
+	<div class={styles.heading_container}>
+		<nav data-theme="dark" class="container-wide">
+			<img loading="lazy" src="/logo.svg" alt="adgytec" />
+		</nav>
+
+		<h1 class="clash-display">ADGYTEC</h1>
+
+		<p class="container text">
+			<a href="#contact" data-variant="primary" data-type="link"
+				>Agile with Adgytec.
+			</a>
+			We drive 360° Digital Transformation integrating IT services with end-to-end
+			marketing, design, and development
+		</p>
+	</div>
+</main>

@@ -1,0 +1,156 @@
+@use "/src/styles/abstracts/media-queries" as ab;
+
+.contact_container {
+	background-color: var(--bg-800);
+	color: var(--text);
+
+	scroll-padding-block-start: 0em;
+
+	padding-block: 4em;
+	overflow: hidden;
+
+	img {
+		img {
+			object-fit: cover;
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	> div {
+		display: grid;
+		gap: clamp(2em, 4.5vw, 4em);
+		isolation: isolate;
+	}
+
+	.contact_heading {
+		display: grid;
+		gap: 1em;
+
+		p {
+			font-weight: 500;
+		}
+	}
+
+	.form {
+		background-color: var(--bg-800);
+		color: var(--text);
+
+		position: relative;
+		border-radius: 0.75em;
+
+		padding-block: clamp(1em, 2.5vw, 2em);
+		padding-inline: clamp(1.2em, 3vw, 2.5em);
+
+		display: flex;
+		flex-direction: column;
+		gap: 2em;
+
+		@include ab.screen-48 {
+			flex-direction: row;
+		}
+
+		&_item {
+			flex-basis: 50%;
+
+			&:first-child {
+				display: grid;
+				gap: 1em;
+
+				h4 {
+					text-align: center;
+
+					@include ab.screen-48 {
+						text-align: left;
+					}
+				}
+
+				img {
+					border-radius: 0.75em;
+				}
+			}
+
+			&:last-child {
+				display: grid;
+				gap: 1em;
+
+				align-content: start;
+
+				form {
+					display: grid;
+					gap: 1em;
+
+					p {
+						text-align: center;
+						text-wrap: balance;
+
+						@include ab.screen-48 {
+							text-align: left;
+						}
+					}
+
+					input,
+					textarea,
+					select {
+						width: 100%;
+						background-color: var(--bg-400);
+						border-color: transparent;
+
+						padding-inline: 0.5em;
+						padding-block: 0.3em;
+
+						font-weight: 500;
+
+						@include ab.screen-48 {
+							width: min(100%, 22.5em);
+						}
+					}
+
+					textarea {
+						resize: none;
+					}
+
+					.other_service {
+						display: none;
+						height: 0;
+						width: 0;
+						overflow: hidden;
+					}
+
+					.form_response {
+						font-size: 0.9rem;
+
+						p.error {
+							color: var(--error);
+						}
+
+						p.success {
+							color: var(--success);
+						}
+					}
+
+					div {
+						text-align: center;
+
+						@include ab.screen-48 {
+							text-align: left;
+						}
+					}
+				}
+			}
+		}
+
+		&::before {
+			content: "";
+			height: 33%;
+			width: 100dvw;
+			background-color: var(--accent-secondary);
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			translate: -50% -50%;
+
+			z-index: -1;
+		}
+	}
+}

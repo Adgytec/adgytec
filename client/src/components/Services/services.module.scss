@@ -1,0 +1,65 @@
+@use "/src/styles/abstracts/media-queries" as ab;
+
+.services_container {
+	padding-block: 5em;
+
+	h2 {
+		--angle: 180deg;
+
+		position: sticky;
+		height: max-content;
+		top: 10vb;
+
+		writing-mode: vertical-lr;
+
+		@include ab.screen-48 {
+			--angle: 90deg;
+
+			writing-mode: horizontal-tb;
+			line-height: clamp(6.25rem, 8vw, 7.375rem);
+		}
+	}
+
+	h3 {
+		color: var(--accent-primary);
+	}
+
+	> div {
+		display: grid;
+		gap: 2em;
+
+		grid-template-columns: min-content 1fr;
+
+		@include ab.screen-48 {
+			gap: clamp(2em, 4.5vi, 4em);
+		}
+	}
+
+	.servcies {
+		display: grid;
+		gap: 3em;
+
+		.services_item {
+			display: grid;
+			gap: 1em;
+
+			img {
+				object-fit: cover;
+				width: 100%;
+				height: auto;
+			}
+
+			ul {
+				padding: 0;
+				margin: 0;
+				list-style-type: none;
+				font-weight: 600;
+
+				@include ab.screen-40 {
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+				}
+			}
+		}
+	}
+}

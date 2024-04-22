@@ -8,7 +8,7 @@
 		"client": "cd client && npm run build && cd ..",
 		"server": "cd server && npm run build",
 		"start": "cd server && node server.js",
-		"devClient": "cd client && npm run start",
+		"devClient": "cd client && npm run dev",
 		"devServer": "cd server && npm run dev"
 	},
 	"keywords": [],

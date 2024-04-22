@@ -1,0 +1,21 @@
+---
+import About from "@components/About/About.astro";
+import Contact from "@components/Contact/Contact";
+import Hero from "@components/Hero/Hero.astro";
+import Partners from "@components/Partners/Partners.astro";
+import Portfolio from "@components/Portfolio/Portfolio.astro";
+import Services from "@components/Services/Services.astro";
+import HomeLayout from "@layouts/HomeLayout.astro";
+
+const pageTitle = "Home";
+---
+
+<HomeLayout pageTitle={pageTitle}>
+	<Hero />
+	<Portfolio />
+	<About />
+	<Partners />
+	<Services />
+
+	<Contact client:load />
+</HomeLayout>

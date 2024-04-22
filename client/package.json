@@ -1,20 +1,23 @@
 {
 	"name": "client",
-	"version": "1.0.0",
-	"description": "",
-	"browserslist": "> 0.5%, last 2 versions, not dead",
+	"type": "module",
+	"version": "0.0.1",
 	"scripts": {
-		"start": "parcel *.html",
-		"build": "npm i && parcel build *.html && npm run clean",
-		"clean": "npm prune --omit=dev"
+		"dev": "astro dev --host",
+		"start": "astro dev",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"@parcel/transformer-sass": "^2.12.0",
-		"parcel": "^2.12.0",
-		"sass": "^1.74.1",
-		"sharp": "^0.31.3"
+	"dependencies": {
+		"@astrojs/check": "^0.5.10",
+		"@astrojs/react": "^3.3.0",
+		"@types/react": "^18.2.79",
+		"@types/react-dom": "^18.2.25",
+		"astro": "^4.6.3",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"sass": "^1.75.0",
+		"typescript": "^5.4.5"
 	}
 }

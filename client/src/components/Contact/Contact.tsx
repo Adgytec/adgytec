@@ -163,7 +163,7 @@ const Contact = () => {
 									}}
 									disabled={submitting}
 								>
-									<option selected={true} value="" disabled>
+									<option value="" disabled>
 										*What are you looking for?
 									</option>
 									{services.map((item) => {

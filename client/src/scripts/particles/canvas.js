@@ -5,6 +5,8 @@ export const initCanvas = () => {
 	const canvasWorkerUrl = new URL("canvasWorker.js", import.meta.url);
 	const canvasWorker = new Worker(canvasWorkerUrl);
 
+	console.log(canvasWorker);
+
 	let width = window.innerWidth;
 	let height = window.innerHeight;
 

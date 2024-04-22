@@ -15,23 +15,30 @@ let rejectHTML;
 
 if (process.env.ENV === "production") {
 	homeHTML = path.join(__dirname, "../../dist/index.html");
-	portfolioHTML = path.join(__dirname, "../../dist/portfolio.html");
-	notfoundHTML = path.join(__dirname, "../../dist/404.html");
-	privacyPolicyHTML = path.join(__dirname, "../../dist/privacy.html");
-
-	successHTML = path.join(__dirname, "../../dist/success.html");
-	rejectHTML = path.join(__dirname, "../../dist/reject.html");
-} else {
-	homeHTML = path.join(__dirname, "../../../client/dist/index.html");
-	portfolioHTML = path.join(__dirname, "../../../client/dist/portfolio.html");
-	notfoundHTML = path.join(__dirname, "../../../client/dist/404.html");
+	notfoundHTML = path.join(__dirname, "../../dist/not-found/index.html");
 	privacyPolicyHTML = path.join(
 		__dirname,
-		"../../../client/dist/privacy.html"
+		"../../dist/privacy-policy/index.html"
 	);
 
-	successHTML = path.join(__dirname, "../../../client/dist/success.html");
-	rejectHTML = path.join(__dirname, "../../../client/dist/reject.html");
+	successHTML = path.join(__dirname, "../../dist/success/index.html");
+	rejectHTML = path.join(__dirname, "../../dist/reject/index.html");
+} else {
+	homeHTML = path.join(__dirname, "../../../client/dist/index.html");
+	notfoundHTML = path.join(
+		__dirname,
+		"../../../client/dist/not-found/index.html"
+	);
+	privacyPolicyHTML = path.join(
+		__dirname,
+		"../../../client/dist/privacy-policy/index.html"
+	);
+
+	successHTML = path.join(
+		__dirname,
+		"../../../client/dist/success/index.html"
+	);
+	rejectHTML = path.join(__dirname, "../../../client/dist/reject/index.html");
 }
 
 const home = (req, res) => {

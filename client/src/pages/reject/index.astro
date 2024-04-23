@@ -43,7 +43,9 @@ import WithoutFooter from "@layouts/WithoutFooter.astro";
 <script>
 	import { initCanvas } from "@scripts/particles/canvas";
 
-	initCanvas();
+	document.addEventListener("astro:page-load", () => {
+		initCanvas();
+	});
 </script>
 
 <WithoutFooter pageTitle="Form Failure">

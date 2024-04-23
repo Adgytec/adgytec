@@ -3,10 +3,15 @@ import styles from "./hero.module.scss";
 ---
 
 <script>
-	import "@scripts/Hero/scroll";
+	import { scrollAnimation } from "@scripts/Hero/scroll";
 	import { initCanvas } from "@scripts/particles/canvas";
 
-	initCanvas();
+	document.addEventListener("astro:page-load", () => {
+		const main = document.getElementsByTagName("main")[0];
+		scrollAnimation(main);
+
+		initCanvas();
+	});
 </script>
 
 <main data-theme="dark" id="home" class={styles.main}>

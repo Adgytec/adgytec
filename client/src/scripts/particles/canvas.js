@@ -10,7 +10,7 @@ export const initCanvas = () => {
 
 	let particle = new Particles(canvas, context, width, height);
 
-	window.addEventListener("resize", (e) => {
+	window.addEventListener("resize", () => {
 		const newHeight = window.innerHeight;
 		const newWidth = window.innerWidth;
 

@@ -1,18 +1,18 @@
 // constants
 const heroTimes = 2;
 
-let viewportWidth = window.innerWidth;
+// let viewportWidth = window.innerWidth;
 let viewportHeight = window.innerHeight;
 
-const scrollAnimation = (main: HTMLElement) => {
+export const scrollAnimation = (main: HTMLElement) => {
 	main.style.setProperty("--times", String(heroTimes));
 
 	window.addEventListener("resize", () => {
-		viewportWidth = window.innerWidth;
+		// viewportWidth = window.innerWidth;
 		viewportHeight = window.innerHeight;
 	});
 
-	window.addEventListener("scroll", (e) => {
+	window.addEventListener("scroll", () => {
 		let y = scrollY;
 
 		const heroHeight = viewportHeight * heroTimes;
@@ -40,6 +40,3 @@ const handleHeroSection: HandleHeroSection = (y, height, main) => {
 
 	main.style.setProperty("--opacity", String(opacity));
 };
-
-const main = document.getElementsByTagName("main")[0];
-scrollAnimation(main);

@@ -50,7 +50,7 @@ const portfolio = (req, res) => {
 };
 
 const validEmail = (email) => {
-	const regx = /^[\-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+	const regx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 	return regx.test(email);
 };

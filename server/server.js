@@ -7,6 +7,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT ?? 8080;
 
+const logger = require("./src/middleware/logger");
+app.use(logger);
+
 if (process.env.ENV === "production") {
 	app.use(express.static("dist"));
 } else {

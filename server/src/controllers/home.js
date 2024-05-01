@@ -59,8 +59,8 @@ const validEmail = (email) => {
 const transporter = nodemailer.createTransport({
 	service: "gmail",
 	auth: {
-		user: "adgytec.main@gmail.com",
-		pass: "gyan tdnz iwqq tfps",
+		user: "info@adgytec.in",
+		pass: process.env.PASS,
 	},
 });
 
@@ -80,7 +80,7 @@ const sendMail = async (
 	number,
 	service,
 	tellusmore,
-	to = "info@adgytec.in",
+	to = "adgytec.main@gmail.com",
 	template = "contact"
 ) => {
 	tellusmore = tellusmore.length > 0 ? tellusmore : "Not-filled";

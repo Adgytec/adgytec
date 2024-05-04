@@ -42,7 +42,9 @@
 		translate: 0;
 	}
 	to {
-		--_t: calc(-1 * (6 * var(--_w) + 6 * var(--_g)));
+		--_t: calc(
+			-1 * (var(--_count) * var(--_w) + var(--_count) * var(--_g))
+		);
 		translate: var(--_t);
 	}
 }

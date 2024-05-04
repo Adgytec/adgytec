@@ -20,6 +20,10 @@
 			--_w: 192px;
 			--_g: 5em;
 
+			--_t: calc(
+				-1 * (var(--_count) * var(--_w) + var(--_count) * var(--_g))
+			);
+
 			display: flex;
 			gap: var(--_g);
 
@@ -42,9 +46,6 @@
 		translate: 0;
 	}
 	to {
-		--_t: calc(
-			-1 * (var(--_count) * var(--_w) + var(--_count) * var(--_g))
-		);
 		translate: var(--_t);
 	}
 }

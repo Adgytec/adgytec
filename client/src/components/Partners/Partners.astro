@@ -1,5 +1,33 @@
 ---
+import { imageConfig } from "astro:assets";
 import styles from "./partners.module.scss";
+
+let images = [
+	{
+		src: "/ecrimino.webp",
+		title: "ecrimino",
+	},
+	{
+		src: "/bomoko-white.webp",
+		title: "bomoko siyanda",
+	},
+	{
+		src: "/one.webp",
+		title: "gov",
+	},
+	{
+		src: "/traveleyes.webp",
+		title: "traveleyes",
+	},
+	{
+		src: "/rural.webp",
+		title: "minisitry of rural development",
+	},
+	{
+		src: "/embassy.webp",
+		title: "congo embassy",
+	},
+];
 ---
 
 <div data-theme="light" class={styles.partner_container}>
@@ -7,168 +35,51 @@ import styles from "./partners.module.scss";
 
 	<div class={`container-wide ${styles.container_wide}`}>
 		<div class={styles.partner}>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/ecrimino.webp"
-					alt="ecrimino"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/bomoko-white.webp"
-					alt="bomoko siyanda"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/one.webp"
-					alt="gov"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/traveleyes.webp"
-					alt="traveleyes"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/rural.webp"
-					alt="minisitry of rural development"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/embassy.webp"
-					alt="congo embassy"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/ecrimino.webp"
-					alt="ecrimino"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/bomoko-white.webp"
-					alt="bomoko siyanda"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/one.webp"
-					alt="gov"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/traveleyes.webp"
-					alt="traveleyes"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/rural.webp"
-					alt="minisitry of rural development"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/embassy.webp"
-					alt="congo embassy"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/ecrimino.webp"
-					alt="ecrimino"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/bomoko-white.webp"
-					alt="bomoko siyanda"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/one.webp"
-					alt="gov"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/traveleyes.webp"
-					alt="traveleyes"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/rural.webp"
-					alt="minisitry of rural development"
-				/>
-			</div>
-			<div>
-				<img
-					loading="lazy"
-					width="192"
-					height=""
-					src="/embassy.webp"
-					alt="congo embassy"
-				/>
-			</div>
+			{
+				images.map((img) => {
+					return (
+						<div>
+							<img
+								loading="lazy"
+								width="192"
+								height=""
+								src={img.src}
+								alt={img.title}
+							/>
+						</div>
+					);
+				})
+			}
+			{
+				images.map((img) => {
+					return (
+						<div>
+							<img
+								loading="lazy"
+								width="192"
+								height=""
+								src={img.src}
+								alt={img.title}
+							/>
+						</div>
+					);
+				})
+			}
+			{
+				images.map((img) => {
+					return (
+						<div>
+							<img
+								loading="lazy"
+								width="192"
+								height=""
+								src={img.src}
+								alt={img.title}
+							/>
+						</div>
+					);
+				})
+			}
 		</div>
 	</div>
 </div>

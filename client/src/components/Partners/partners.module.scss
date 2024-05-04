@@ -16,11 +16,15 @@
 		overflow: hidden;
 
 		.partner {
+			--_count: 6;
+			--_w: 192px;
+			--_g: 5em;
+
 			display: flex;
-			gap: 5em;
+			gap: var(--_g);
 
 			align-items: center;
-			animation: loop 6s linear infinite;
+			animation: loop 12s linear infinite;
 
 			> * {
 				min-width: 12rem;
@@ -38,6 +42,7 @@
 		translate: 0;
 	}
 	to {
-		translate: -1640px;
+		--_t: calc(-1 * (6 * var(--_w) + 6 * var(--_g)));
+		translate: var(--_t);
 	}
 }

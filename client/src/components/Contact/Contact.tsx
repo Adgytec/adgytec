@@ -229,7 +229,7 @@ const Contact = () => {
 								<p className="subtext">
 									Disclaimer: By clicking submit, you agree to
 									receive communications from Adgytec in
-									accordance with our
+									accordance with our{" "}
 									<a
 										href="/privacy-policy"
 										target="_blank"

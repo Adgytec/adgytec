@@ -20,6 +20,20 @@ const { pageTitle } = Astro.props;
 
 		<link rel="icon" type="image/x-icon" href="/logo.ico" />
 		<ViewTransitions />
+		<script
+			type="text/partytown"
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-TBJRNEHHXM"
+		></script>
+		<script type="text/partytown">
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+
+			gtag("config", "G-TBJRNEHHXM");
+		</script>
 	</head>
 	<body>
 		<slot />

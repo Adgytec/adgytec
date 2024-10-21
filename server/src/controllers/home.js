@@ -128,7 +128,7 @@ const contactus = async (req, res) => {
 
 	try {
 		const url = `${process.env.API_ROUTE}/services/contact-us`;
-		let res = await fetch(url, {
+		let response = await fetch(url, {
 			method: "POST",
 			headers: {
 				Authorization: `Bearer ${process.env.API_TOKEN}`,
@@ -136,8 +136,8 @@ const contactus = async (req, res) => {
 			},
 			body: JSON.stringify(res.body),
 		});
-		res = await res.json();
-		if (res.error) throw new Error(res.message);
+		response = await response.json();
+		if (response.error) throw new Error(response.message);
 
 		sendMail(name, email, number, service, tellusmore);
 		sendMail(

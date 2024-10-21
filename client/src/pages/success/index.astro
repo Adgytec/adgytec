@@ -3,6 +3,12 @@ import Footer from "@components/Footer/Footer.astro";
 import WithoutFooter from "@layouts/WithoutFooter.astro";
 ---
 
+<script>
+	import { initCanvas } from "@scripts/particles/canvas";
+
+	initCanvas();
+</script>
+
 <style lang="scss">
 	.canvas {
 		#response {
@@ -39,12 +45,6 @@ import WithoutFooter from "@layouts/WithoutFooter.astro";
 		}
 	}
 </style>
-
-<script type="text/partytown">
-	import { initCanvas } from "@scripts/particles/canvas";
-
-	initCanvas();
-</script>
 
 <WithoutFooter pageTitle="Form Success">
 	<div class="canvas">

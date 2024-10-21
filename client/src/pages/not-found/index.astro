@@ -2,6 +2,14 @@
 import WithoutFooter from "@layouts/WithoutFooter.astro";
 ---
 
+<script>
+	import { initCanvas } from "@scripts/particles/canvas";
+
+	document.addEventListener("astro:page-load", () => {
+		initCanvas();
+	});
+</script>
+
 <style lang="scss">
 	#notfound {
 		position: relative;
@@ -77,14 +85,6 @@ import WithoutFooter from "@layouts/WithoutFooter.astro";
 		}
 	}
 </style>
-
-<script type="text/partytown">
-	import { initCanvas } from "@scripts/particles/canvas";
-
-	document.addEventListener("astro:page-load", () => {
-		initCanvas();
-	});
-</script>
 
 <WithoutFooter pageTitle="404">
 	<main id="notfound">

@@ -127,8 +127,20 @@ const contactus = async (req, res) => {
 	}
 
 	try {
-		await sendMail(name, email, number, service, tellusmore);
-		await sendMail(
+		const url = `${process.env.API_ROUTE}/services/contact-us`;
+		let res = await fetch(url, {
+			method: "POST",
+			headers: {
+				Authorization: `Bearer ${process.env.API_TOKEN}`,
+				"Content-type": "application/json; charset=UTF-8",
+			},
+			body: JSON.stringify(res.body),
+		});
+		res = await res.json();
+		if (res.error) throw new Error(res.message);
+
+		sendMail(name, email, number, service, tellusmore);
+		sendMail(
 			name,
 			email,
 			number,
@@ -140,14 +152,14 @@ const contactus = async (req, res) => {
 
 		return res.status(201).json({
 			status: "successfull",
-			message: "Successfully got your detials",
+			message: "Successfully got your details",
 		});
 	} catch (err) {
 		console.error(err);
 
 		return res.status(500).json({
 			status: "error",
-			message: "Internal Server Error",
+			message: err.message,
 		});
 	}
 };

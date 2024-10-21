@@ -134,7 +134,7 @@ const contactus = async (req, res) => {
 				Authorization: `Bearer ${process.env.API_TOKEN}`,
 				"Content-type": "application/json; charset=UTF-8",
 			},
-			body: JSON.stringify(res.body),
+			body: JSON.stringify(req.body),
 		});
 		response = await response.json();
 		if (response.error) throw new Error(response.message);

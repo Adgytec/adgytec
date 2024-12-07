@@ -30,6 +30,8 @@ import styles from "./footer.module.scss";
 						Logix Blossom Greens
 						<br />Sector 143, Noida<br />
 						Uttar Pradesh, 201301
+						<br />
+						India
 					</p>
 				</div>
 
@@ -160,6 +162,16 @@ import styles from "./footer.module.scss";
 	</div>
 
 	<div class={`container ${styles.footer_copyright}`}>
-		<p class="subtext">© 2024 Adgytec All rights reserved.</p>
+		<p class="subtext">
+			© <span class="year"></span> Adgytec All rights reserved.
+		</p>
 	</div>
 </footer>
+
+<script>
+	document.addEventListener("astro:page-load", () => {
+		const year = document.getElementsByClassName("year")[0];
+		let date = new Date();
+		year.textContent = date.getFullYear().toString();
+	});
+</script>

@@ -1,0 +1,25 @@
+@use "/src/styles/abstracts/media-queries" as ab;
+
+.container {
+  // background-color: var(--bg-800);
+  color: var(--text);
+  padding-block: 4em;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75)), url("/learning.WebP");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  .learning {
+    display: grid;
+    gap: 1.75rem;
+
+    >h2 {
+      padding-block-end: 1.25rem;
+    }
+
+    >div {
+      display: grid;
+      gap: 0.5rem;
+    }
+  }
+}

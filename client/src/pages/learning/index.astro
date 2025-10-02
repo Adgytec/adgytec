@@ -1,0 +1,19 @@
+---
+import Contact from "@components/Contact/Contact";
+import LearningOffer from "@components/Learning/LearningOffer.astro";
+import HomeLayout from "@layouts/HomeLayout.astro";
+import HeroLearning from "@components/Hero/HeroLearning.astro";
+import LearningInfo from "@components/Learning/LearningInfo.astro";
+
+const pageTitle = "Learning";
+---
+
+<HomeLayout pageTitle={pageTitle}>
+	<HeroLearning />
+
+	<LearningOffer />
+
+	<LearningInfo />
+
+	<Contact client:load />
+</HomeLayout>

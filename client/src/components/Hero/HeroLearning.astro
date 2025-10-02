@@ -1,0 +1,38 @@
+---
+import styles from "./hero.module.scss";
+---
+
+<script>
+	import { scrollAnimation } from "@scripts/Hero/scroll";
+	import { initCanvas } from "@scripts/particles/canvas";
+
+	document.addEventListener("astro:page-load", () => {
+		const main = document.getElementsByTagName("main")[0];
+		scrollAnimation(main);
+
+		initCanvas();
+	});
+</script>
+
+<main data-theme="dark" id="home" class={styles.main}>
+	<canvas id="canvas1"></canvas>
+	<div class={styles.heading_container}>
+		<nav data-theme="dark" class="container-wide">
+			<img loading="lazy" src="/logo.svg" alt="adgytec" />
+		</nav>
+
+		<h2 class="clash-display">ADGYTEC LEARNING</h2>
+
+		<p class="container text">
+			Backed by Adgytec’s real-world expertise in cloud security,
+			networking, and digital transformation.
+
+			<a
+				href="https://studio.adgytec.in"
+				data-variant="primary"
+				data-type="link"
+				>Studio Login.
+			</a>
+		</p>
+	</div>
+</main>

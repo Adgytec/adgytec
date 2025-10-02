@@ -1,25 +1,42 @@
 @use "/src/styles/abstracts/media-queries" as ab;
 
 .container {
-  // background-color: var(--bg-800);
-  color: var(--text);
-  padding-block: 4em;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.75)), url("/learning.WebP");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+	// background-color: var(--bg-800);
+	color: var(--text);
+	padding-block: 4em;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.75)),
+		url("/learning.WebP");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 
-  .learning {
-    display: grid;
-    gap: 1.75rem;
+	.learning {
+		display: grid;
+		gap: 2rem;
 
-    >h2 {
-      padding-block-end: 1.25rem;
-    }
+		> h2 {
+			padding-block-end: 1.25rem;
+		}
 
-    >div {
-      display: grid;
-      gap: 0.5rem;
-    }
-  }
+		.info {
+			display: grid;
+			gap: 0.75rem;
+		}
+
+		.offer {
+			display: grid;
+			gap: 0.75rem;
+			h5 {
+				margin: 0;
+			}
+			ol {
+				padding: 0;
+				list-style-position: inside;
+				margin: 0;
+
+				display: grid;
+				gap: 0.5rem;
+			}
+		}
+	}
 }

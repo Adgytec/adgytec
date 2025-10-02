@@ -43,20 +43,8 @@
 		}
 
 		&_items {
-			--o: 1;
-
 			display: grid;
 			gap: 5em;
-
-			@supports (animation-timeline: view()) {
-				animation-name: scroll-opacity;
-				animation-timing-function: linear;
-				animation-fill-mode: forwards;
-				animation-timeline: view();
-
-				animation-range-start: contain 0%;
-				animation-range-end: contain 100%;
-			}
 
 			h3 {
 				font-weight: 500;
@@ -85,16 +73,32 @@
 				width: 100%;
 			}
 
-			> :nth-child(2) {
-				opacity: 1;
-				@include ab.screen-48 {
-					grid-template-areas:
-						"title about about about about about"
-						"video video video video video video";
-				}
-			}
+			// > :nth-child(2) {
+			// 	opacity: 1;
+			// 	@include ab.screen-48 {
+			// 		grid-template-areas:
+			// 			"title about about about about about"
+			// 			"video video video video video video";
+			// 	}
+			// }
 
 			&_child {
+				&:last-child {
+					opacity: 1 !important;
+				}
+
+				--o: 1;
+
+				@supports (animation-timeline: view()) {
+					animation-name: scroll-opacity;
+					animation-timing-function: linear;
+					animation-fill-mode: forwards;
+					animation-timeline: view();
+
+					animation-range-start: contain 10%;
+					animation-range-end: contain 75%;
+				}
+
 				display: grid;
 				gap: 1em;
 
